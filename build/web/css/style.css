@@ -2,7 +2,7 @@
 
 .mi-slider {
 	position: relative;
-	margin-top: 30px;
+	margin-top: 30px;/*30px;*/
 	height: 490px;
 }
 
@@ -78,7 +78,7 @@
 	position: relative;
 	top: 400px;
 	text-align: center;
-	max-width: 800px;
+	max-width: 900px;/*changed here by me*/
 	margin: 0 auto;
 	border-top: 5px solid #333;
 }

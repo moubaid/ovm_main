@@ -23,7 +23,7 @@ public class LoginServlet extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest request,HttpServletResponse response) throws ServletException,IOException
     {
-       String uname=request.getParameter("username");
+        String uname=request.getParameter("username");
         String passwd=request.getParameter("passwd");
        /* String uname="m.oubaid";
         String passwd="oubaid";*/

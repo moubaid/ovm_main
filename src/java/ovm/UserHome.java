@@ -1,7 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package ovm;
 
 import java.io.IOException;
@@ -42,9 +39,10 @@ public class UserHome extends HttpServlet {
 "		<div class=\"container\">	\n" +
 "			<!-- Codrops top bar -->\n" +
 "			<div class=\"codrops-top clearfix\">\n" +
-"				<a href=\"register.html\"><strong>&laquo; Welcome Mr. "+
-                 //   out.println("</strong>"+ </a>\n" +
-"				<span class=\"right\"><a href=\"Login.html\"><strong>Login</strong></a></span>\n" +
+"				<a href=\"register.html\"><strong>&laquo; Welcome Mr. ");
+            String uname=request.getParameter("username");
+            out.println(uname+" </strong>"+ "</a>\n" +
+"				<span class=\"right\"><a href=\"index.html\"><strong>Login Out</strong></a></span>\n" +
 "			</div><!--/ Codrops top bar -->\n" +
 "			<header class=\"clearfix\">\n" +
 "				<h1>Online Vegetable Market <span style=\"color:#0C6\">Buy Fruits and Vegetable Online</span></h1>\n" +
@@ -52,7 +50,7 @@ public class UserHome extends HttpServlet {
 "			<div class=\"main\">\n" +
 "				<div id=\"mi-slider\" class=\"mi-slider\">\n" +
 "					<ul>\n" +
-"						<li><a href=\"#\"><img src=\"images/1.jpg\" alt=\"img01\"><h4>Lady Finger</h4></a></li>\n" +
+"						<li><a href=\"#\"><img src=\"images/1.jpg\" alt=\"img01\"><h4>Lady Finger</h4></a><a href='"+response.encodeURL("GetProductsServlet")+"'>Add Cart</a> </li>\n" +
 "						<li><a href=\"#\"><img src=\"images/2.jpg\" alt=\"img02\"><h4>Tomato</h4></a></li>\n" +
 "						<li><a href=\"#\"><img src=\"images/3.jpg\" alt=\"img03\"><h4>Onion</h4></a></li>\n" +
 "						<li><a href=\"#\"><img src=\"images/4.jpg\" alt=\"img04\"><h4>Potato</h4></a></li>\n" +
@@ -84,7 +82,7 @@ public class UserHome extends HttpServlet {
 "				</div>\n" +
 "			</div>\n" +
 "		</div><!-- /container -->\n" +
-"		<script src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js\"></script>\n" +
+"		<script src=\"js/jquery.min.js\"></script>\n" +
 "		<script src=\"js/jquery.catslider.js\"></script>\n" +
 "		<script>\n" +
 "			$(function() {\n" +

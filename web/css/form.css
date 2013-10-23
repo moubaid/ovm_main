@@ -48,6 +48,7 @@ h1.formheader
 	margin-top:50px;
 	margin-left:200px;
 	background-color:#86CADD;
+	z-index:10px;
 }
 
 
