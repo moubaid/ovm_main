@@ -23,7 +23,7 @@ public class UserDAO {
             Statement st=con.createStatement();
             ResultSet rs;
             
-            rs = st.executeQuery("select * from customer where username = '"+uname+"' and password='"+passwd+"'");
+            rs = st.executeQuery("select * from customer where email = '"+uname+"' and passwd='"+passwd+"'");
             return rs.next();
         }
         catch(Exception e)

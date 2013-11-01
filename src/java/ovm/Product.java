@@ -12,6 +12,8 @@ public class Product {
     String pName,pCategory;
     int pId;
     double qty;
+    double price;
+    String desc;
     public String getPName()
     {
         return pName;
@@ -45,6 +47,23 @@ public class Product {
     {
         this.qty=qty;
     }
+    public double getPrice()
+    {
+        return price;
+    }
+    public void setPrice(double price)
+    {
+        this.price=price;
+    }
+    public String getDesc()
+    {
+        return desc;
+    }
+    public void setPDesc(String desc)
+    {
+        this.desc=desc;
+        
+    }
     public boolean equals(Object o)
     {
         if(o instanceof Product)
@@ -53,7 +72,8 @@ public class Product {
             ;
         }
         {
-        }
+        
         return false;
+        }
     }
 }

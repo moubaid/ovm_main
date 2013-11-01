@@ -68,15 +68,15 @@ public class Register extends GenericServlet {
                     PrintWriter out=res.getWriter();
                     try
                     {
-                                String uname=req.getParameter("username");
-                                String email=req.getParameter("email");
+                               // String uname=req.getParameter("username");
+                                String uname=req.getParameter("email");
                                 String contactno=req.getParameter("contactno");
                                 String pass=req.getParameter("passwd");
                                 String repass=req.getParameter("repasswd");
                                 int count=0;
                                 if(uname==null||uname.equals("")||pass==null||pass.equals("")
                                         
-                                        ||!(pass.equals(repass))||email==null||email.equals("")||contactno==null||contactno.equals(""))
+                                        ||!(pass.equals(repass))||contactno==null||contactno.equals(""))
                                         {        
                                                out.println("<html><body><center>");
                                                out.println("<li><i>Given Details are not valid to register</i></li><br/>");
@@ -87,7 +87,7 @@ public class Register extends GenericServlet {
                                  st=con.createStatement();
                                 
             
-                            rs = st.executeQuery("select * from customer where username = '"+uname+"' or email='"+email+"'");
+                            rs = st.executeQuery("select * from customer where email = '"+uname+"'");
                         if(rs.next())
                         {
                                                //out.println("<html><body><center>");
@@ -104,18 +104,19 @@ public class Register extends GenericServlet {
                                 
                                 //DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
                                 //Date dob = new Date((req.getParameter("dob");
-                                String dob=req.getParameter("dob");
+                                //String dob=req.getParameter("dob");
                                 String addr=req.getParameter("address");
                                 String city=req.getParameter("city");
-                                long pincode=Long.parseLong(req.getParameter("pincode"));
-                                ps.setString(1, email);
-                                ps.setString(2, uname);
-                                ps.setString(3, pass);
-                                ps.setString(4, dob);
-                                ps.setString(5,addr);
-                                ps.setString(6, city);
-                                ps.setString(7, contactno);
-                                ps.setLong(8,pincode);
+                                String pincode=req.getParameter("pincode");
+                                ps.setString(1, uname);
+                                
+                                ps.setString(2, cname);
+                                ps.setString(3, contactno);
+                                ps.setString(4,addr);
+                                ps.setString(5, city);
+                                ps.setString(6, pincode);
+                                ps.setString(7,pass);
+                                
                                 count=ps.executeUpdate();
                                 
                                 if(count==1||count==Statement.SUCCESS_NO_INFO)

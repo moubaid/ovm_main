@@ -33,8 +33,10 @@ public Collection getProducts()
             Product p=new Product();
             p.pId=rs.getInt(1);
             p.pName=rs.getString(2);
-            p.pCategory=rs.getString(3);
-            p.qty=rs.getDouble(4);
+            p.price=rs.getDouble(3);
+            p.desc=rs.getString(4);
+            p.pCategory=rs.getString(5);
+            p.qty=rs.getDouble(6);
             products.add(p);
         }
         return products;

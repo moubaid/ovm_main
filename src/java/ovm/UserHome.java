@@ -39,10 +39,10 @@ public class UserHome extends HttpServlet {
 "		<div class=\"container\">	\n" +
 "			<!-- Codrops top bar -->\n" +
 "			<div class=\"codrops-top clearfix\">\n" +
-"				<a href=\"register.html\"><strong>&laquo; Welcome Mr. ");
-            String uname=request.getParameter("username");
-            out.println(uname+" </strong>"+ "</a>\n" +
-"				<span class=\"right\"><a href=\"index.html\"><strong>Login Out</strong></a></span>\n" +
+"				<a href=\"CustomerDetails\"><strong>&laquo; Welcome,  ");
+                        String uname=request.getParameter("username");
+                        out.println(uname+" </strong>"+ "</a>\n" +
+"				<span class=\"right\"><a href='"+response.encodeURL("Logout")+"'><strong>Logout</strong></a></span>\n" +
 "			</div><!--/ Codrops top bar -->\n" +
 "			<header class=\"clearfix\">\n" +
 "				<h1>Online Vegetable Market <span style=\"color:#0C6\">Buy Fruits and Vegetable Online</span></h1>\n" +
@@ -50,17 +50,17 @@ public class UserHome extends HttpServlet {
 "			<div class=\"main\">\n" +
 "				<div id=\"mi-slider\" class=\"mi-slider\">\n" +
 "					<ul>\n" +
-"						<li><a href=\"#\"><img src=\"images/1.jpg\" alt=\"img01\"><h4>Lady Finger</h4></a><a href='"+response.encodeURL("GetProductsServlet")+"'>Add Cart</a> </li>\n" +
-"						<li><a href=\"#\"><img src=\"images/2.jpg\" alt=\"img02\"><h4>Tomato</h4></a></li>\n" +
-"						<li><a href=\"#\"><img src=\"images/3.jpg\" alt=\"img03\"><h4>Onion</h4></a></li>\n" +
-"						<li><a href=\"#\"><img src=\"images/4.jpg\" alt=\"img04\"><h4>Potato</h4></a></li>\n" +
+"                                            <li><a href=\"#\"><img src=\"images/mysore-bhindi.jpg\" alt=\"img01\"><h4>Lady Finger</h4></a>QTY : <input type=\"text\" name=\"qty\" value=\"0.0KG\" size=\"4\"/> <a href='"+ response.encodeURL("GetProductsServlet")+"'/>Add To Cart<input type=\"checkbox\" name=\"addcart\" value=\"ladyfinger\"/></a> </li>\n" +
+"						<li><a href=\"#\"><img src=\"images/tomato-hybrid-grade-a.jpg\" alt=\"img02\"><h4>Tomato</h4></a>QTY : <input type=\"text\" name=\"qty\" value=\"0.0KG\" size=\"4\"/> Add To Cart<input type=\"checkbox\" name=\"addcart\" value=\"tamato\"/> </li>\n" +
+"						<li><a href=\"#\"><img src=\"images/onion-medium.jpg\" alt=\"img03\"><h4>Onion</h4></a>QTY : <input type=\"text\" name=\"qty\" value=\"0.0KG\" size=\"4\"/> Add To Cart<input type=\"checkbox\" name=\"addcart\" value=\"onion\"/> </li>\n" +
+"						<li><a href=\"#\"><img src=\"images/potato.jpg\" alt=\"img04\"><h4>Potato</h4></a>QTY : <input type=\"text\" name=\"qty\" value=\"0.0KG\" size=\"4\"/> Add To Cart<input type=\"checkbox\" name=\"addcart\" value=\"potato\"/> </li>\n" +
 "						\n" +
 "					</ul>\n" +
 "					<ul>\n" +
-"						<li><a href=\"#\"><img src=\"images/5.jpg\" alt=\"img05\"><h4>Apple</h4></a></li>\n" +
-"						<li><a href=\"#\"><img src=\"images/6.jpg\" alt=\"img06\"><h4>Banana</h4></a></li>\n" +
-"						<li><a href=\"#\"><img src=\"images/7.jpg\" alt=\"img07\"><h4>Orange</h4></a></li>\n" +
-"						<li><a href=\"#\"><img src=\"images/8.jpg\" alt=\"img08\"><h4>Pomegranate</h4></a></li>\n" +
+"						<li><a href=\"#\"><img src=\"images/apples-royalgala.jpg\" alt=\"img05\"><h4>Apple</h4></a>QTY : <input type=\"text\" name=\"qty\" value=\"0.0KG\" size=\"4\"/> Add To Cart<input type=\"checkbox\" name=\"addcart\" value=\"apple\"/> </li>\n" +
+"						<li><a href=\"#\"><img src=\"images/banana_small.jpg\" alt=\"img06\"><h4>Banana</h4></a>QTY : <input type=\"text\" name=\"qty\" value=\"0.0KG\" size=\"4\"/> Add To Cart<input type=\"checkbox\" name=\"addcart\" value=\"banana\"/> </li>\n" +
+"						<li><a href=\"#\"><img src=\"images/7.jpg\" alt=\"img07\"><h4>Orange</h4></a>QTY : <input type=\"text\" name=\"qty\" value=\"0.0KG\" size=\"4\"/> Add To Cart<input type=\"checkbox\" name=\"addcart\" value=\"orange\"/> </li>\n" +
+"						<li><a href=\"#\"><img src=\"images/pomegranate-kesar.jpg\" alt=\"img08\"><h4>Pomegranate</h4></a>QTY : <input type=\"text\" name=\"qty\" value=\"0.0KG\" size=\"4\"/> Add To Cart<input type=\"checkbox\" name=\"addcart\" value=\"pomegranate\"/> </li>\n" +
 "					</ul>\n" +
 "					<ul>\n" +
 "						<li><a href=\"#\"><img src=\"images/9.jpg\" alt=\"img09\"><h4>Your Delivery</h4></a></li>\n" +

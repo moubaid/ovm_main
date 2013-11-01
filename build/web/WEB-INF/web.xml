@@ -20,6 +20,18 @@
         <servlet-name>GetProductsServlet</servlet-name>
         <servlet-class>ovm.GetProductsServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AddProductServlet</servlet-name>
+        <servlet-class>ovm.AddProductServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Logout</servlet-name>
+        <servlet-class>ovm.Logout</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CustomerDetails</servlet-name>
+        <servlet-class>ovm.CustomerDetails</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
@@ -39,6 +51,18 @@
     <servlet-mapping>
         <servlet-name>GetProductsServlet</servlet-name>
         <url-pattern>/GetProductsServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddProductServlet</servlet-name>
+        <url-pattern>/AddProductServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Logout</servlet-name>
+        <url-pattern>/Logout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CustomerDetails</servlet-name>
+        <url-pattern>/CustomerDetails</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
