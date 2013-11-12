@@ -44,6 +44,10 @@
         <servlet-name>GetCartDetailsServlet</servlet-name>
         <servlet-class>ovm.GetCartDetailsServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>VendorRegister</servlet-name>
+        <servlet-class>ovm.VendorRegister</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
@@ -87,6 +91,10 @@
     <servlet-mapping>
         <servlet-name>GetCartDetailsServlet</servlet-name>
         <url-pattern>/GetCartDetailsServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>VendorRegister</servlet-name>
+        <url-pattern>/VendorRegister</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
