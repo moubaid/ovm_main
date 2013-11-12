@@ -4,6 +4,13 @@
  */
 package ovm;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.sql.Blob;
+import java.sql.SQLException;
+
 /**
  *
  * @author shatabdi
@@ -12,8 +19,10 @@ public class Product {
     String pName,pCategory;
     int pId;
     double qty;
+    
     double price;
     String desc;
+    Blob image;
     public String getPName()
     {
         return pName;
@@ -63,6 +72,24 @@ public class Product {
     {
         this.desc=desc;
         
+    }
+    public void setImage(Blob b)
+    {
+                this.image = b;
+                
+    }
+    public Blob getImage() throws SQLException, IOException
+    {
+        return image;
+       /* InputStream in = image.getBinaryStream();
+        int length = (int) image.length();
+        int bufferSize = 1024;
+        byte[] buffer = new byte[bufferSize];
+        while ((length = in.read(buffer)) != -1) {
+        out.write(buffer, 0, length);
+            }
+            in.close();
+        out.flush();*/
     }
     public boolean equals(Object o)
     {

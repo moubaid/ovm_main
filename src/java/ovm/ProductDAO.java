@@ -10,6 +10,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.Collection;
 import javax.servlet.ServletException;
+import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -28,6 +29,7 @@ public Collection getProducts()
         Statement st=con.createStatement();
         ResultSet rs=st.executeQuery("select * from products");
         ArrayList products=new ArrayList();
+        
         while(rs.next())
         {
             Product p=new Product();
@@ -37,6 +39,7 @@ public Collection getProducts()
             p.desc=rs.getString(4);
             p.pCategory=rs.getString(5);
             p.qty=rs.getDouble(6);
+            p.image = rs.getBlob(7);
             products.add(p);
         }
         return products;

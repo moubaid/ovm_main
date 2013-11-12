@@ -32,6 +32,18 @@
         <servlet-name>CustomerDetails</servlet-name>
         <servlet-class>ovm.CustomerDetails</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ImageServlet</servlet-name>
+        <servlet-class>ovm.ImageServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GetImage</servlet-name>
+        <servlet-class>ovm.GetImage</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GetCartDetailsServlet</servlet-name>
+        <servlet-class>ovm.GetCartDetailsServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
@@ -63,6 +75,18 @@
     <servlet-mapping>
         <servlet-name>CustomerDetails</servlet-name>
         <url-pattern>/CustomerDetails</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ImageServlet</servlet-name>
+        <url-pattern>/ImageServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GetImage</servlet-name>
+        <url-pattern>/GetImage</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GetCartDetailsServlet</servlet-name>
+        <url-pattern>/GetCartDetailsServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

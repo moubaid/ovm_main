@@ -4,12 +4,20 @@
  */
 package ovm;
 
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.io.PrintWriter;
+import java.sql.Blob;
+import java.sql.SQLException;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -38,7 +46,7 @@ public class GetProductsServlet extends HttpServlet {
         }
         String uname=(String)hs.getAttribute("UserName");
         res.setContentType("text/html");
-        PrintWriter out=res.getWriter();
+       PrintWriter out=res.getWriter();
         
         out.println("<html><head>");
         out.println("<title>Online Vegetable Market</title>");
@@ -48,18 +56,19 @@ public class GetProductsServlet extends HttpServlet {
                 + "<td height='39%' colspan='2'><strong><font size='5'>Online Vegetable Market</font></strong></td></tr>");
         out.println("<tr> <td width='18%' height='500px' valign='top'><p>&nbsp;</p>");
         out.println("<blockquote><p><a href='"+res.encodeURL("GetProductsServlet")+"'>View Products</a></p><p>");
-        out.println("<a href='"+res.encodeURL("GetCartServlet")+"'>View Cart Details</a></p><p>");
+        out.println("<a href='"+res.encodeURL("GetCartDetailsServlet")+"'>View Cart Details</a></p><p>");
         out.println("<a href='"+res.encodeURL("Logout")+"'>Logout</a></p></blockquote></td>");
         out.println("<td width='82%' align='left' valign='top'><p>");
         out.println("<font size='6'>Welcome, "+uname+"</font></p>");
-        out.println("<form method='post' action='"+res.encodeURL("AddProductServlets")+"'>");
+        out.println("<form method='post' action='"+res.encodeURL("AddProductServlet")+"'>");
         out.println("<table width='100%' border='1'>");
         out.println("<tr>");
-        out.println("<th width='8%'>Check</th>");
-        out.println("<th width='24%'>Product Code</th>");
-        out.println("<th width='28%'>Product Name</th>");
-        out.println("<th width='20%'>Available Qty</th>");
-        out.println("<th width='20%'>Requires Qty</th>");
+        out.println("<th width='5%'>Check</th>");
+        out.println("<th width='10%'>Product Code</th>");
+        out.println("<th width='30%'>Product Name</th>");
+        out.println("<th width='10%'>Available Qty</th>");
+        out.println("<th width='15%'>Requires Qty</th>");
+        out.println("<th width='30%'>Images of Product</th>");
         out.println("</tr>");
         Collection products=productsdao.getProducts();
         if(products==null)
@@ -73,18 +82,23 @@ public class GetProductsServlet extends HttpServlet {
             Iterator i=products.iterator();
             while(i.hasNext())
             {
-                Product p=(Product)i.next();
-                out.println("<tr>");
-                out.println("<td align='center'>");
-                out.println("<input type='checkbox' name='products value='"+p.getPId()+"'/></td>");
-                out.println("<td>"+p.getPId()+"</td>");
-                out.println("<td>"+p.getPName()+"</td>");
-                out.println("<td>"+p.getQty()+"</td>");
-                out.println("<td><input type='text' name='"+p.getPId()+"'/>");
-                out.println("</td></tr>");
-            }
+                
+                    Product p=(Product)i.next();
+                    out.println("<tr>");
+                    out.println("<td align='center'>");
+                    out.println("<input type='checkbox' name='products' value='"+p.getPId()+"'/></td>");
+                    out.println("<td>"+p.getPId()+"</td>");
+                    out.println("<td>"+p.getPName()+"</td>");
+                    out.println("<td>"+p.getQty()+"</td>");
+                    out.println("<td><input type='text' name='"+p.getPId()+"'/></td>");
+                   // out.println("<td>"+p.getImage()+"</td>");
+                    //res.setContentType("text/jpg");
+                    out.println("<td><img src='./GetImage?p_id="+p.getPId()+"' width='150' height='150'/>");
+                    out.println("</td></tr>");
+                
+                    }
         }
-        out.println("</table>");
+            out.println("</table>");
            out.println("<br/><center>");
            out.println("<input type='submit' value='Add Products to Cart'/>");
            out.println("</center></form></td></tr>");

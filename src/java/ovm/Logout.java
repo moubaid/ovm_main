@@ -18,16 +18,15 @@ import javax.servlet.http.HttpSession;
  * @author Oubaid
  */
 public class Logout extends HttpServlet {
-public void doGet(HttpServletRequest req,HttpServlet res)
+public void doGet(HttpServletRequest req,HttpServletResponse res)
         throws ServletException,IOException
 {
     HttpSession hs=req.getSession(false);
     
     if(hs!=null)
-    {
-        hs.invalidate();
-    }
+            hs.invalidate();
+    
     RequestDispatcher rd=req.getRequestDispatcher("Login.html");
-    rd.forward(req, null);
+    rd.forward(req,res);
 }
 }
