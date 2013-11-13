@@ -6,15 +6,9 @@ package ovm;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.io.*;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.*;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import javax.servlet.GenericServlet;
 import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
@@ -30,6 +24,7 @@ public class Register extends GenericServlet {
             PreparedStatement ps=null;//=con.createStatement();
             Statement st=null;
             ResultSet rs=null;
+    @Override
             public void init() throws ServletException
             {
                 System.out.println("In Init");
@@ -56,7 +51,6 @@ public class Register extends GenericServlet {
                 }
                 catch(Exception e)
                 {
-                    e.printStackTrace();
                     throw new ServletException("Initalization failed, Unable to get DB Connection");
                 }
             }
@@ -106,6 +100,7 @@ public class Register extends GenericServlet {
                                 //Date dob = new Date((req.getParameter("dob");
                                 //String dob=req.getParameter("dob");
                                 String addr=req.getParameter("address");
+                                String area=req.getParameter("area");
                                 String city=req.getParameter("city");
                                 String pincode=req.getParameter("pincode");
                                 ps.setString(1, uname);
@@ -113,9 +108,10 @@ public class Register extends GenericServlet {
                                 ps.setString(2, cname);
                                 ps.setString(3, contactno);
                                 ps.setString(4,addr);
-                                ps.setString(5, city);
-                                ps.setString(6, pincode);
-                                ps.setString(7,pass);
+                                ps.setString(5,area);
+                                ps.setString(6, city);
+                                ps.setString(7, pincode);
+                                ps.setString(8,pass);
                                 
                                 count=ps.executeUpdate();
                                 
