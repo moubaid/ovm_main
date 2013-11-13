@@ -33,9 +33,9 @@ public class VendorRegister extends GenericServlet {
 
                     String sqlstmt = "INSERT INTO Vendor"
 			+ " VALUES "
-			+ "(?,?,?,?,?,?,?,?)";
-            con=DriverConnection.getConnection();
-            ps=con.prepareStatement(sqlstmt);
+			+ "(?,?,?,?,?,?,?,?,?)";
+                con=DriverConnection.getConnection();
+                ps=con.prepareStatement(sqlstmt);
                         
                 }
                 catch(Exception e)
@@ -50,7 +50,7 @@ public class VendorRegister extends GenericServlet {
                     System.out.println("In Service");
                     res.setContentType("text/html");
                     PrintWriter out=res.getWriter();
-                    try
+                   try
                     {
                                // String uname=req.getParameter("username");
                                 String uname=req.getParameter("email");
@@ -90,16 +90,19 @@ public class VendorRegister extends GenericServlet {
                                 //Date dob = new Date((req.getParameter("dob");
                                 //String dob=req.getParameter("dob");
                                 String addr=req.getParameter("address");
+                                String area=req.getParameter("area");
                                 String city=req.getParameter("city");
                                 String pincode=req.getParameter("pincode");
                                 ps.setString(1, uname);
-                                
+                                 
                                 ps.setString(2, cname);
-                                ps.setString(3, contactno);
+                               ps.setString(3, contactno);
                                 ps.setString(4,addr);
-                                ps.setString(5, city);
-                                ps.setString(6, pincode);
-                                ps.setString(7,pass);
+                                ps.setString(5, area);
+                                ps.setString(6, city);
+                                ps.setString(7, pincode);
+                                ps.setString(8,pass);
+                                ps.setDouble(9,0.0 );
                                 
                                 count=ps.executeUpdate();
                                 
@@ -121,11 +124,11 @@ public class VendorRegister extends GenericServlet {
                                 }
                             }
                     
-                             catch(Exception e)       
+                            catch(Exception e)       
                              {
                                  out.println("<html><body><center>");
                                     out.println("<h1>Unable to the process the request try after some time<br/>");
-                                    out.println("<li><i>Please try again later</i></li>");
+                                    out.println("<li><i>Please try again later</i></li>"+e);
                                     out.println("</center></body></html>");
                              }
                 

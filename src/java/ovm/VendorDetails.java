@@ -19,7 +19,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author Oubaid
  */
-public class CustomerDetails extends HttpServlet {
+public class VendorDetails extends HttpServlet {
 public void doGet(HttpServletRequest req, HttpServletResponse res)
         throws ServletException, IOException
 {
@@ -34,7 +34,7 @@ public void doGet(HttpServletRequest req, HttpServletResponse res)
             Statement st=con.createStatement();
             ResultSet rs;
             
-            rs = st.executeQuery("select * from customer where email = '"+uname+"'");
+            rs = st.executeQuery("select * from Vendor where email = '"+uname+"'");
             if(rs.next())
             {
              out.println("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n" +
@@ -72,7 +72,8 @@ public void doGet(HttpServletRequest req, HttpServletResponse res)
 "					<tr><label><td>Address           </td><td>: <textarea readonly rows=\"3\" cols=\"20\"/>"+rs.getString(4)+"</textarea></td></label></tr>\n" +
                     "					<tr><label><td>Area              </td><td>: "+rs.getString(5)+"</td></label></tr>\n" +
 "					<tr><label><td>City              </td><td>: "+rs.getString(6)+"</td></label></tr>\n" +
-"					<tr><label><td>Pincode          </td><td>: "+rs.getString(7)+"</td></label></tr>\n" +                                
+"					<tr><label><td>Pincode           </td><td>: "+rs.getString(7)+"</td></label></tr>\n" +                                
+                    "					<tr><label><td>Current Balance           </td><td>: "+rs.getString(9)+"</td></label></tr>\n" +                                
 "					<tr><td><button class=\"login1\" name=\"update\" ><span class=\"login\">Update</span></button></td></tr>\n" +
 "				</table>\n" +
 "            	</form>\n" +
