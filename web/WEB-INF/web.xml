@@ -52,6 +52,10 @@
         <servlet-name>VendorDetails</servlet-name>
         <servlet-class>ovm.VendorDetails</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>index</servlet-name>
+        <servlet-class>ovm.index</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
@@ -103,6 +107,10 @@
     <servlet-mapping>
         <servlet-name>VendorDetails</servlet-name>
         <url-pattern>/VendorDetails</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>index</servlet-name>
+        <url-pattern>/index</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

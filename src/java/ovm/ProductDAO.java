@@ -4,16 +4,9 @@
  */
 package ovm;
 
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Collection;
-import javax.servlet.ServletException;
-import javax.servlet.ServletOutputStream;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 /**
  *
@@ -21,13 +14,13 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class ProductDAO 
 {
-public Collection getProducts()
+public Collection getProducts(String msg)
 {
     try
     {
         Connection con=DriverConnection.getConnection();
         Statement st=con.createStatement();
-        ResultSet rs=st.executeQuery("select * from products");
+        ResultSet rs=st.executeQuery("SELECT * FROM  products WHERE  p_cate =  '"+msg+"'");
         ArrayList products=new ArrayList();
         
         while(rs.next())

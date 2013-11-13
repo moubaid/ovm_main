@@ -6,7 +6,6 @@ package ovm;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.PrintWriter;
 import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.ResultSet;

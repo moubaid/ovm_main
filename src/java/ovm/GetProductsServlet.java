@@ -4,20 +4,12 @@
  */
 package ovm;
 
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
 import java.io.PrintWriter;
-import java.sql.Blob;
-import java.sql.SQLException;
 import java.util.Collection;
 import java.util.Iterator;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -29,11 +21,13 @@ import javax.servlet.http.HttpSession;
  */
 public class GetProductsServlet extends HttpServlet {
 
+    @Override
     public void init() throws ServletException
     {
         productsdao=new ProductDAO();
         
     }
+    @Override
     public void doGet(HttpServletRequest req,HttpServletResponse res)
             throws ServletException, IOException
     {
@@ -70,7 +64,7 @@ public class GetProductsServlet extends HttpServlet {
         out.println("<th width='15%'>Requires Qty</th>");
         out.println("<th width='30%'>Images of Product</th>");
         out.println("</tr>");
-        Collection products=productsdao.getProducts();
+        Collection products=productsdao.getProducts("Vegetable");
         if(products==null)
         {
             out.println("<tr><td colspan='5' align='center'>");
