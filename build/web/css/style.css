@@ -28,7 +28,9 @@
 .mi-slider ul.mi-current {
 	pointer-events: auto;
 }
-
+/*ul.mi-current{
+    width:80%;
+}*/
 .mi-slider ul li {
 	display: inline-block;
 	padding: 20px;

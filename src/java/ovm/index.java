@@ -8,10 +8,12 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Collection;
 import java.util.Iterator;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -39,14 +41,14 @@ public class index extends HttpServlet {
     }
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-      /*  HttpSession hs=request.getSession(false);
+        HttpSession hs=request.getSession(false);
         if(hs==null)
         {
             RequestDispatcher rd=request.getRequestDispatcher("Login.html");
             rd.forward(request, response);
             return;
         }
-        String uname=(String)hs.getAttribute("UserName");*/
+        String uname=(String)hs.getAttribute("UserName");
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
@@ -80,8 +82,8 @@ public class index extends HttpServlet {
 "		<div class=\"container\">	\n" +
 "			<!-- Codrops top bar -->\n" +
 "			<div class=\"codrops-top clearfix\">\n" +
-"				<a href=\"register.html\"><strong>&laquo; Click Here to Register </strong>Free Registration and Delivery </a>\n" +
-"				<span class=\"right\"><a href=\"Login.html\"><strong>Login</strong></a></span>\n" +
+"				<a href=\"CustomerDetails\"><strong>&laquo; Welcome,</strong>"+uname+"</a>\n" +
+"				<span class=\"right\"><a href=\"Logout\"><strong>Logout</strong></a></span>\n" +
 "			</div><!--/ Codrops top bar -->\n" +
 "			<header class=\"clearfix\">\n" +
 "				<h1>Online Vegetable Market <span style=\"color:#0C6\">Buy Fruits and Vegetable Online</span></h1>\n" +

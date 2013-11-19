@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 11, 2013 at 09:35 PM
+-- Generation Time: Nov 12, 2013 at 11:18 PM
 -- Server version: 5.0.51
 -- PHP Version: 5.2.6
 
@@ -36,7 +36,8 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`email`, `c_name`, `c_phone`, `address`, `Area`, `city`, `pincode`, `passwd`) VALUES
-('m.oubaid@gmail.com', 'Mohammed Oubaid', '9886382484', '#40, Lakshmi Narayan Temple Road, 7th Main', 'Marathalli', 'Bangalore', '560037', 'oubaid');
+('m.oubaid@gmail.com', 'Mohammed Oubaid', '9886382484', '#40, Lakshmi Narayan Temple Road, 7th Main', 'Marathalli', 'Bangalore', '560037', 'oubaid'),
+('sabeer@gmail.com', 'Sabeer Abdul', '90909090', 'Shop#123', 'Marathalli', 'bagalore', '560006', 'sabeer');
 
 -- --------------------------------------------------------
 
@@ -231,25 +232,28 @@ INSERT INTO `products` (`p_id`, `p_name`, `price`, `p_desc`, `p_cate`, `aqty`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table ` vendor`
+-- Table structure for table `vendor`
 --
 
-CREATE TABLE ` vendor` (
+CREATE TABLE `vendor` (
   `email` varchar(30) NOT NULL,
-  `c_phone` varchar(30) NOT NULL,
-  `c_name` varchar(30) NOT NULL,
-  `address` varchar(30) NOT NULL,
-  `Area` varchar(30) NOT NULL,
+  `v_name` varchar(30) NOT NULL,
+  `v_phone` varchar(12) NOT NULL,
+  `address` varchar(60) NOT NULL,
+  `area` varchar(30) NOT NULL,
   `city` varchar(30) NOT NULL,
-  `pincode` varchar(30) NOT NULL,
+  `pincode` varchar(6) NOT NULL,
   `password` varchar(30) NOT NULL,
-  `price` varchar(30) NOT NULL
+  `curbal` double NOT NULL,
+  PRIMARY KEY  (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table ` vendor`
+-- Dumping data for table `vendor`
 --
 
+INSERT INTO `vendor` (`email`, `v_name`, `v_phone`, `address`, `area`, `city`, `pincode`, `password`, `curbal`) VALUES
+('tamjeedqazi@gmail.com', 'Tamjeed Qazi', '9739603141', 'Shop#123', 'Marathalli', 'bagalore', '560006', 'tamjeed', 0);
 
 --
 -- Constraints for dumped tables

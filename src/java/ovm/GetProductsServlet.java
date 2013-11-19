@@ -48,9 +48,11 @@ public class GetProductsServlet extends HttpServlet {
         out.println("<table width='100%' height='90%' border='1px'>");
         out.println("<tr align='center'> "
                 + "<td height='39%' colspan='2'><strong><font size='5'>Online Vegetable Market</font></strong></td></tr>");
-        out.println("<tr> <td width='18%' height='500px' valign='top'><p>&nbsp;</p>");
-        out.println("<blockquote><p><a href='"+res.encodeURL("GetProductsServlet")+"'>View Products</a></p><p>");
-        out.println("<a href='"+res.encodeURL("GetCartDetailsServlet")+"'>View Cart Details</a></p><p>");
+        out.println("<tr> <td width='18%' height='500px' valign='top'><p>&nbsp;</p>");out.println("<blockquote><p><a href='"+res.encodeURL("index")+"'>Home</a></p><p>");
+        out.println("<a href='"+res.encodeURL("GetProductsServlet")+"'>Vegetables</a></p><p>");
+        out.println("<a href='"+res.encodeURL("GetProductsServlet")+"'>Fruits</a></p><p>");
+        out.println("<a href='"+res.encodeURL("GetCartDetailsServlet")+"'>Cart Details</a></p><p>");
+        out.println("<a href='"+res.encodeURL("BuyServlet")+"'>Buy Cart</a></p><p>");
         out.println("<a href='"+res.encodeURL("Logout")+"'>Logout</a></p></blockquote></td>");
         out.println("<td width='82%' align='left' valign='top'><p>");
         out.println("<font size='6'>Welcome, "+uname+"</font></p>");
@@ -60,7 +62,7 @@ public class GetProductsServlet extends HttpServlet {
         out.println("<th width='5%'>Check</th>");
         out.println("<th width='10%'>Product Code</th>");
         out.println("<th width='30%'>Product Name</th>");
-        out.println("<th width='10%'>Available Qty</th>");
+        out.println("<th width='10%'>Price</th>");
         out.println("<th width='15%'>Requires Qty</th>");
         out.println("<th width='30%'>Images of Product</th>");
         out.println("</tr>");
@@ -83,7 +85,7 @@ public class GetProductsServlet extends HttpServlet {
                     out.println("<input type='checkbox' name='products' value='"+p.getPId()+"'/></td>");
                     out.println("<td>"+p.getPId()+"</td>");
                     out.println("<td>"+p.getPName()+"</td>");
-                    out.println("<td>"+p.getQty()+"</td>");
+                    out.println("<td>"+p.getPrice()+"</td>");
                     out.println("<td><input type='text' name='"+p.getPId()+"'/></td>");
                    // out.println("<td>"+p.getImage()+"</td>");
                     //res.setContentType("text/jpg");
