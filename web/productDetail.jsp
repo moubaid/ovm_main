@@ -34,7 +34,31 @@
 				<h1>Online Vegetable Market <span style="color:#0C6">Buy Fruits and Vegetable Online</span></h1>
 			</header>
 			<div class="main">
-				
+                            <div>
+                                <table border="0" cellspacing="20px">
+                                    <tr>
+                                        <td rowspan="5">
+                                            <img src="./images/4.jpg" alt="img" width="300px" height="300px"/>
+                                        </td>
+                                        <td cellpadding="20px">
+                                            Product ID: 
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td cellpadding="30px">Name : </td>    
+                                    </tr>
+                                    <tr>
+                                        <td cellpadding="30px"> Price : </td>    
+                                    </tr>
+                                     <tr>
+                                        <td cellpadding="30px">Category: </td>    
+                                    </tr>
+                                    <tr>
+                                        <td cellpadding="30px">Description : </td>    
+                                    </tr>
+                                    
+                                </table>
+                            </div>
 			</div>
 		</div><!-- /container -->
 		<script src="js/jquery.min.js"></script>

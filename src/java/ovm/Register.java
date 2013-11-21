@@ -30,18 +30,7 @@ public class Register extends GenericServlet {
                 System.out.println("In Init");
                 try
                 {
-/*                    ServletContext ctxt=getServletContext();
-                    String driverClassName=ctxt.getInitParameter("driverClassName");
-                    Class.forName(driverClassName);
-                    
-                    String url=ctxt.getInitParameter("url");
-                    String dbuser=getInitParameter("dbuser");
-                    String dbpass=getInitParameter("dbpass");
-                    String sqlst=getInitParameter("sqlstatement");
-                    con=DriverManager.getConnection(url,dbuser,dbpass);
-                    
-                    ps=con.prepareStatement(sqlst);
-                    * */
+
                     String sqlstmt = "INSERT INTO customer"
 			+ " VALUES "
 			+ "(?,?,?,?,?,?,?,?)";

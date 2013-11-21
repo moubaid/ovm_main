@@ -51,7 +51,7 @@ public void doGet(HttpServletRequest req,HttpServletResponse res)
         out.println("<a href='"+res.encodeURL("Logout")+"'>Logout</a></p></blockquote></td>");
         out.println("<td width='82%' align='left' valign='top'><p>");
         out.println("<font size='6'>Welcome, "+uname+"</font></p>");
-        out.println("<form method='post' action='"+res.encodeURL("AddProductServlet")+"'>");
+        out.println("<form method='post' action='"+res.encodeURL("BuyServlet")+"'>");
         out.println("<table width='100%' border='1'>");
         out.println("<tr>");
         out.println("<th width='10%'>Check</th>");

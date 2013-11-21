@@ -39,7 +39,7 @@ h1.formheader
 	font-size:16px;
 	color:#2D87A2;
 }
-.formcontainer, .loginform
+.formcontainer, .loginform,errorpage
 {
 	width:500px;
 	height:400px;
@@ -48,7 +48,7 @@ h1.formheader
 	margin-top:50px;
 	margin-left:200px;
 	background-color:#86CADD;
-	z-index:10px;
+	
 }
 
 
@@ -63,7 +63,19 @@ button.login1
 .loginform
 {
 	font-family:Arial, Helvetica, sans-serif;
-	width:300px;
-	height:150px;
+	width:320px;
+	height:250px;
 	margin-bottom:10px;
+}
+.errorpage
+{
+        background-color:#86CADD;
+	font-family:Arial, Helvetica, sans-serif;
+	width:400px;
+        color:red;
+	height:250px;
+        margin-left: 300px;
+	margin-bottom:10px;
+    
+    
 }

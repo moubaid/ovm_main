@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 11, 2013 at 09:35 PM
+-- Generation Time: Nov 21, 2013 at 04:25 AM
 -- Server version: 5.0.51
 -- PHP Version: 5.2.6
 
@@ -36,7 +36,26 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`email`, `c_name`, `c_phone`, `address`, `Area`, `city`, `pincode`, `passwd`) VALUES
-('m.oubaid@gmail.com', 'Mohammed Oubaid', '9886382484', '#40, Lakshmi Narayan Temple Road, 7th Main', 'Marathalli', 'Bangalore', '560037', 'oubaid');
+('m.oubaid@gmail.com', 'Mohammed Oubaid', '9886382484', '#40, Lakshmi Narayan Temple Road, 7th Main', 'Marathalli', 'Bangalore', '560037', 'oubaid'),
+('sabeer@gmail.com', 'Sabeer Abdul', '90909090', 'Shop#123', 'Marathalli', 'bagalore', '560006', 'sabeer');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `feedback`
+--
+
+CREATE TABLE `feedback` (
+  `email` varchar(30) default NULL,
+  `subject` varchar(50) default NULL,
+  `msg` varchar(160) default NULL,
+  `date` varchar(30) default NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `feedback`
+--
+
 
 -- --------------------------------------------------------
 
@@ -45,21 +64,21 @@ INSERT INTO `customer` (`email`, `c_name`, `c_phone`, `address`, `Area`, `city`,
 --
 
 CREATE TABLE `onlinestatus` (
-  `email` varchar(30) NOT NULL,
-  `p_id` int(11) NOT NULL,
-  `o_id` int(11) NOT NULL,
-  `start_time` datetime NOT NULL,
-  `end_time` datetime NOT NULL,
-  `desc` varchar(50) NOT NULL,
-  KEY `email` (`email`,`p_id`,`o_id`),
-  KEY `p_id` (`p_id`),
+  `email` varchar(30) default NULL,
+  `o_id` int(11) NOT NULL auto_increment,
+  `start_time` varchar(30) default NULL,
+  `end_time` varchar(30) default NULL,
+  `status` varchar(80) default NULL,
+  KEY `email` (`email`,`o_id`),
   KEY `o_id` (`o_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `onlinestatus`
 --
 
+INSERT INTO `onlinestatus` (`email`, `o_id`, `start_time`, `end_time`, `status`) VALUES
+('m.oubaid@gmail.com', 1, '19/11/2013 09:39:39 PM', NULL, 'Your Order Forwarded to Vendor');
 
 -- --------------------------------------------------------
 
@@ -68,17 +87,21 @@ CREATE TABLE `onlinestatus` (
 --
 
 CREATE TABLE `order` (
-  `o_id` int(11) NOT NULL,
-  `p_id` int(11) NOT NULL,
-  `qty` int(11) NOT NULL,
-  PRIMARY KEY  (`o_id`),
-  KEY `p_id` (`p_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `o_id` int(11) NOT NULL auto_increment,
+  `email` varchar(30) default NULL,
+  `dop` varchar(30) default NULL,
+  `totalamt` decimal(10,0) default NULL,
+  `totqty` int(11) default NULL,
+  `vemail` varchar(30) default NULL,
+  PRIMARY KEY  (`o_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `order`
 --
 
+INSERT INTO `order` (`o_id`, `email`, `dop`, `totalamt`, `totqty`, `vemail`) VALUES
+(1, 'm.oubaid@gmail.com', '19/11/2013 09:39:39 PM', '400', 2, NULL);
 
 -- --------------------------------------------------------
 
@@ -231,40 +254,25 @@ INSERT INTO `products` (`p_id`, `p_name`, `price`, `p_desc`, `p_cate`, `aqty`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table ` vendor`
+-- Table structure for table `vendor`
 --
 
-CREATE TABLE ` vendor` (
+CREATE TABLE `vendor` (
   `email` varchar(30) NOT NULL,
-  `c_phone` varchar(30) NOT NULL,
-  `c_name` varchar(30) NOT NULL,
-  `address` varchar(30) NOT NULL,
-  `Area` varchar(30) NOT NULL,
+  `v_name` varchar(30) NOT NULL,
+  `v_phone` varchar(12) NOT NULL,
+  `address` varchar(60) NOT NULL,
+  `area` varchar(30) NOT NULL,
   `city` varchar(30) NOT NULL,
-  `pincode` varchar(30) NOT NULL,
+  `pincode` varchar(6) NOT NULL,
   `password` varchar(30) NOT NULL,
-  `price` varchar(30) NOT NULL
+  `curbal` double NOT NULL,
+  PRIMARY KEY  (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table ` vendor`
+-- Dumping data for table `vendor`
 --
 
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `onlinestatus`
---
-ALTER TABLE `onlinestatus`
-  ADD CONSTRAINT `onlinestatus_ibfk_1` FOREIGN KEY (`email`) REFERENCES `customer` (`email`),
-  ADD CONSTRAINT `onlinestatus_ibfk_2` FOREIGN KEY (`p_id`) REFERENCES `products` (`p_id`),
-  ADD CONSTRAINT `onlinestatus_ibfk_3` FOREIGN KEY (`o_id`) REFERENCES `order` (`o_id`);
-
---
--- Constraints for table `order`
---
-ALTER TABLE `order`
-  ADD CONSTRAINT `order_ibfk_1` FOREIGN KEY (`p_id`) REFERENCES `products` (`p_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+INSERT INTO `vendor` (`email`, `v_name`, `v_phone`, `address`, `area`, `city`, `pincode`, `password`, `curbal`) VALUES
+('tamjeedqazi@gmail.com', 'Tamjeed Qazi', '9739603141', 'Shop#123', 'Marathalli', 'bagalore', '560006', 'tamjeed', 0);
