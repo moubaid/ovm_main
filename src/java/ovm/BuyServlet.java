@@ -97,6 +97,13 @@ public class BuyServlet extends HttpServlet {
                                     out.println("<li><i>Thank You for Buying</i></li>");
                                     out.println("</center></body></html>");
                                     con.commit();
+                                    totqty=0;
+                                    totamt=0;
+                                    hs.setAttribute("TotalAmount",totamt);
+                                    hs.setAttribute("TotalQty",totqty);
+                                    Collection products=null;
+                                    hs.setAttribute("products",products);
+                                    
                                 }
                                 
                      
