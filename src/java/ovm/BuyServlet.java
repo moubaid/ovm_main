@@ -70,7 +70,7 @@ public class BuyServlet extends HttpServlet {
                                 out.print("Im Threre 4");
                                  if(count==1||count==Statement.SUCCESS_NO_INFO)
                                 {
-                                    out.println("<html><body><center>");
+                                    out.println("<html><body style=\"background-image: url(./images/bg1.jpg);\"><center>");
                                     out.println("Items Purchased Successfully<br/>");
                                     out.println("<li><i>Thank You for Buying</i></li>");
                                     out.println("</center></body></html>");

@@ -78,11 +78,16 @@ public class index extends HttpServlet {
 "		<link rel=\"stylesheet\" type=\"text/css\" href=\"css/style.css\" />\n" +
 "		<script src=\"js/modernizr.custom.63321.js\"></script>\n" +
 "	</head>\n" +
-"	<body>\n" +
+"	<body style=\"background-image: url(./images/bg1.jpg);\">\n" +
 "		<div class=\"container\">	\n" +
 "			<!-- Codrops top bar -->\n" +
 "			<div class=\"codrops-top clearfix\">\n" +
 "				<a href=\"CustomerDetails\"><strong>&laquo; Welcome,</strong>"+uname+"</a>\n" +
+                    "<a href=\"index.html\"><strong>Home</strong></a>"+
+                                "<a href=\"./GetProductsServlet?cate=Fruit\"><strong>Fruits</strong></a>"+
+                                "<a href=\"./GetProductsServlet?cate=Vegetable\"><strong>Vegetable</strong></a>"+
+                                "<a href=\"./GetCartDetails\"><strong>Cart[0]</strong></a>"+
+                                "<a href=\"./BuyServlet\"><strong>Buy Items</strong></a>"+
 "				<span class=\"right\"><a href=\"Logout\"><strong>Logout</strong></a></span>\n" +
 "			</div><!--/ Codrops top bar -->\n" +
 "			<header class=\"clearfix\">\n" +

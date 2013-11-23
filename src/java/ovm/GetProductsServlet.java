@@ -38,13 +38,16 @@ public class GetProductsServlet extends HttpServlet {
             rd.forward(req, res);
             return;
         }
+        String name="cate";
+        
+        String value=(String)req.getParameter(name);
         String uname=(String)hs.getAttribute("UserName");
         res.setContentType("text/html");
        PrintWriter out=res.getWriter();
         
         out.println("<html><head>");
         out.println("<title>Online Vegetable Market</title>");
-        out.println("<head><body>");
+        out.println("<head><body style=\"background-image: url(./images/bg1.jpg);\">");
         out.println("<table width='100%' height='90%' border='1px'>");
         out.println("<tr align='center'> "
                 + "<td height='39%' colspan='2'><strong><font size='5'>Online Vegetable Market</font></strong></td></tr>");
@@ -66,7 +69,7 @@ public class GetProductsServlet extends HttpServlet {
         out.println("<th width='15%'>Requires Qty</th>");
         out.println("<th width='30%'>Images of Product</th>");
         out.println("</tr>");
-        Collection products=productsdao.getProducts("Vegetable");
+        Collection products=productsdao.getProducts(value);
         if(products==null)
         {
             out.println("<tr><td colspan='5' align='center'>");

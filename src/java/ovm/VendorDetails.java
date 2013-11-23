@@ -47,7 +47,7 @@ public void doGet(HttpServletRequest req, HttpServletResponse res)
 "\n" +
 "</head>\n" +
 "\n" +
-"<body>"+
+"<body style=\"background-image: url(./images/bg1.jpg);\">"+
 "		<div class=\"container\">	\n" +
 "			<!-- Codrops top bar -->\n" +
 "			<div class=\"codrops-top clearfix\">\n" +

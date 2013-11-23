@@ -12,19 +12,34 @@
 		<link rel="stylesheet" type="text/css" href="css/style.css" />
 		<script src="js/modernizr.custom.63321.js"></script>
 	</head>
-	<body>
+        <body style="background-image: url(./images/bg1.jpg);">
 		<div class="container">	
 			<!-- Codrops top bar -->
 			<div class="codrops-top clearfix">
-				<a href="register.html"><strong>&laquo; Click Here to Register </strong>Free Registration and Delivery </a>
-				<span class="right"><a href="Login.html"><strong>Login</strong></a></span>
+				<a href="register.html"><strong>&laquo; Click Here to Register </strong></a>
+				
+                                   <a href="index.html"><strong>Home</strong></a>
+                                <a href="./GetProductsServlet?cate=Fruit"><strong>Fruits</strong></a>
+                                <a href="./GetProductsServlet?cate=Vegetable"><strong>Vegetable</strong></a>
+                                <a href="./GetCartDetails"><strong>Cart[0]</strong></a>
+                                <a href="./BuyServlet"><strong>Buy Items</strong></a>
+                                
+                                <span class="right"><a href="Login.html"><strong>Login</strong></a></span>
+                             
+                                
 			</div><!--/ Codrops top bar -->
-			<header class="clearfix">
-				<h1>Online Vegetable Market <span style="color:#0C6">Buy Fruits and Vegetable Online</span></h1>
+                        
+                        <header class="clearfix"  style="background-color:#fff;">
+				<h1 style="">Online Vegetable Market <span style="color:#0C6">Buy Fruits and Vegetable Online</span></h1>
+                                  
 			</header>
+                       
 			<div class="main">
-				<div id="mi-slider" class="mi-slider">
-					<ul>
+                          	
+				
+                            <div id="mi-slider" class="mi-slider">
+				
+                                    <ul>
                                             <li><a href="#"><img src="images/mysore-bhindi.jpg" alt="img01"><h4>Lady Finger</h4></a>MRP : QTY : <input type="text" name="qty" value="0.0KG" size="4"/> <br/>Add To Cart<input type="checkbox" name="addcart" value="ladyfinger"/> </li>
 						<li><a href="#"><img src="images/tomato-hybrid-grade-a.jpg" alt="img02"><h4>Tomato</h4></a>QTY : <input type="text" name="qty" value="0.0KG" size="4"/><br/> Add To Cart<input type="checkbox" name="addcart" value="tamato"/> </li>
 						<li><a href="#"><img src="images/onion-medium.jpg" alt="img03"><h4>Onion</h4></a>QTY : <input type="text" name="qty" value="0.0KG" size="4"/> <br/>Add To Cart<input type="checkbox" name="addcart" value="onion"/> </li>

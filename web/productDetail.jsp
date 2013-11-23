@@ -20,17 +20,19 @@
 		<link rel="stylesheet" type="text/css" href="css/style.css" />
 		<script src="js/modernizr.custom.63321.js"></script>
 	</head>
-	<body>
+	<body style="background-image: url(./images/bg1.jpg);">
 		<div class="container">	
-                    <%
-                        out.print(session.getAttribute("UserName"));
-                    %>
 			<!-- Codrops top bar -->
 			<div class="codrops-top clearfix">
-				<a href="register.html"><strong>&laquo; Click Here to Register </strong>Free Registration and Delivery </a>
-				<span class="right"><a href="Login.html"><strong>Login</strong></a></span>
+				<a href="register.html"><strong>&laquo; Click to Register </strong></a>
+				
+                                   <a href="index.html"><strong>Home</strong></a>
+                                <a href="./GetProductsServlet?cate=Fruit"><strong>Fruits</strong></a>
+                                <a href="./GetProductsServlet?cate=Vegetable"><strong>Vegetable</strong></a>
+                                <a href="./GetCartDetails"><strong>Cart[0]</strong></a>
+                                <a href="./BuyServlet"><strong>Buy Items</strong></a>
 			</div><!--/ Codrops top bar -->
-			<header class="clearfix">
+			<header class="clearfix" style="background-color:#fff;">
 				<h1>Online Vegetable Market <span style="color:#0C6">Buy Fruits and Vegetable Online</span></h1>
 			</header>
 			<div class="main">

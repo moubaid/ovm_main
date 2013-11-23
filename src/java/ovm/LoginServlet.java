@@ -38,7 +38,7 @@ public class LoginServlet extends HttpServlet {
             hs.setAttribute("TotalQty",totqty);
             hs.setAttribute("TotalAmount",totamt);
             hs.setAttribute("products",products);
-            RequestDispatcher rd=request.getRequestDispatcher("UserHome");
+            RequestDispatcher rd=request.getRequestDispatcher("index");
             rd.forward(request, response);
         }
         else

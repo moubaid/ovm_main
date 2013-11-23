@@ -47,13 +47,18 @@ public void doGet(HttpServletRequest req, HttpServletResponse res)
 "\n" +
 "</head>\n" +
 "\n" +
-"<body>"+
+"<body style=\"background-image: url(./images/bg1.jpg);\">"+
 "		<div class=\"container\">	\n" +
 "			<!-- Codrops top bar -->\n" +
 "			<div class=\"codrops-top clearfix\">\n" +
 "				<a href=\"CustomerDetails\"><strong>&laquo; Welcome,  ");
                         
                         out.println(uname+" </strong>"+ "</a>\n" +
+                                "<a href=\"index.html\"><strong>Home</strong></a>"+
+                                "<a href=\"./GetProductsServlet?cate=Fruit\"><strong>Fruits</strong></a>"+
+                                "<a href=\"./GetProductsServlet?cate=Vegetable\"><strong>Vegetable</strong></a>"+
+                                "<a href=\"./GetCartDetails\"><strong>Cart[0]</strong></a>"+
+                                "<a href=\"./BuyServlet\"><strong>Buy Items</strong></a>"+
 "				<span class=\"right\"><a href='"+res.encodeURL("Logout")+"'\"><strong>Logout</strong></a></span>\n" );
             out.println("<header class=\"clearfix\">\n" +
 "				<h1>Online Vegetable Market <span style=\"color:#0C6\"><br/>Buy Fruits and Vegetable Online</span></h1>\n" +

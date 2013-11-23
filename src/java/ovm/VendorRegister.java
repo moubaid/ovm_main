@@ -108,7 +108,7 @@ public class VendorRegister extends GenericServlet {
                                 
                                 if(count==1||count==Statement.SUCCESS_NO_INFO)
                                 {
-                                    out.println("<html><body><center>");
+                                    out.println("<html><body style=\"background-image: url(./images/bg1.jpg);\"><center>");
                                     out.println("Registered Successfully<br/>");
                                     out.println("<li><i>You are Welcome</i></li>");
                                     out.println("</center></body></html>");
@@ -117,7 +117,7 @@ public class VendorRegister extends GenericServlet {
                      
                                 else
                                 {
-                                    out.println("<html><body><center>");
+                                    out.println("<html><body style=\"background-image: url(./images/bg1.jpg);\"><center>");
                                     out.println("Given details are incorrect<br/>");
                                     out.println("<li><i>Please try again later</i></li>");
                                     out.println("</center></body></html>");
@@ -126,7 +126,7 @@ public class VendorRegister extends GenericServlet {
                     
                             catch(Exception e)       
                              {
-                                 out.println("<html><body><center>");
+                                 out.println("<html><body><center style=\"background-image: url(./images/bg1.jpg);\">");
                                     out.println("<h1>Unable to the process the request try after some time<br/>");
                                     out.println("<li><i>Please try again later</i></li>"+e);
                                     out.println("</center></body></html>");

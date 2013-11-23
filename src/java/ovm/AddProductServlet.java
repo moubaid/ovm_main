@@ -111,7 +111,7 @@ public class AddProductServlet extends HttpServlet {
         
          out.println("<html><head>");
         out.println("<title>Online Vegetable Market</title>");
-        out.println("<head><body>");
+        out.println("<head><body style=\"background-image: url(./images/bg1.jpg);\">");
         out.println("<table width='100%' height='90%' border='1px'>");
         out.println("<tr align='center'> "
                 + "<td height='39%' colspan='2'><strong><font size='5'>Online Vegetable Market</font></strong></td></tr>");

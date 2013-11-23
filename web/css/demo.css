@@ -24,9 +24,13 @@ html { height: 100%; }
     clear: both;
 }
 
+
 .clearfix {
     *zoom: 1;
+   
+   
 }
+
 
 body {
     font-family: 'Lato', Calibri, Arial, sans-serif;
@@ -79,10 +83,11 @@ a {
 
 /* Header Style */
 .codrops-top {
-	line-height: 24px;
+	line-height: 30px;/*24px;*/
 	font-size: 11px;
 	background: #fff;
-	background: rgba(255, 255, 255, 0.5);
+	background:rgba(255, 255, 255, 0.5);
+       
 	text-transform: uppercase;
 	z-index: 9999;
 	position: relative;
