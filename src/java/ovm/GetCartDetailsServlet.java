@@ -62,7 +62,7 @@ public void doGet(HttpServletRequest req,HttpServletResponse res)
                                 "<a href=\"./BuyServlet\"><strong>Buy Items</strong></a>"+
 "				<span class=\"right\"><a href=\"Logout\"><strong>Logout</strong></a></span>\n" +
 "			</div><!--/ Codrops top bar -->\n" +
-"			<header class=\"clearfix\">\n" +
+"			<header class=\"clearfix\" style='background-image: url(./images/hd1.jpg);background-color: whitesmoke;background-position: left ;'>\n" +
 "				<h1>Online Vegetable Market <span style=\"color:#0C6\">Buy Fruits and Vegetable Online</span></h1>\n" +
 "			</header>\n");
 out.println("			<div class=\"main\">");

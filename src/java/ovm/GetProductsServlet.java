@@ -69,9 +69,10 @@ public class GetProductsServlet extends HttpServlet {
                                 "<a href=\"./GetProductsServlet?cate=Vegetable\"><strong>Vegetable</strong></a>"+
                                 "<a href=\"./GetCartDetails\"><strong>Cart[0]</strong></a>"+
                                 "<a href=\"./BuyServlet\"><strong>Buy Items</strong></a>"+
+                                "<a href=\"./AddProductServelt\"><strong>Add To Cart</strong></a>"+
 "				<span class=\"right\"><a href=\"Logout\"><strong>Logout</strong></a></span>\n" +
 "			</div><!--/ Codrops top bar -->\n" +
-"			<header class=\"clearfix\">\n" +
+"			<header class=\"clearfix\" style='background-image: url(./images/hd1.jpg);background-color: whitesmoke;background-position: left ;'>\n" +
 "				<h1>Online Vegetable Market <span style=\"color:#0C6\">Buy Fruits and Vegetable Online</span></h1>\n" +
 "			</header>\n");
         out.println("<form method='post' action='"+res.encodeURL("AddProductServlet")+"'>");
@@ -104,7 +105,7 @@ public class GetProductsServlet extends HttpServlet {
                     out.println("<td>"+p.getPId()+"</td>");
                     out.println("<td>"+p.getPName()+"</td>");
                     out.println("<td>"+p.getPrice()+"</td>");
-                    out.println("<td><input type='text' name='"+p.getPId()+"'/></td>");
+                    out.println("<td><input type='text' value='1.0' name='"+p.getPId()+"'/>KG</td>");
                    // out.println("<td>"+p.getImage()+"</td>");
                     //res.setContentType("text/jpg");
                     out.println("<td><img src='./GetImage?p_id="+p.getPId()+"' width='150' height='150'/>");

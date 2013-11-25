@@ -75,7 +75,7 @@ public class VendorHome extends HttpServlet {
                     + "                               <a href=\"./BuyServlet\"><strong>Buy Items</strong></a>"
                     + "                              <span class=\"right\"><a href=\"Logout\"><strong>Logout</strong></a></span>"
                     + "			</div><!--/ Codrops top bar -->"
-                    + "                       <header class=\"clearfix\"  style=\"background-color:#fff;\">"
+                    + "                       <header class=\"clearfix\"  style='background-image: url(./images/hd1.jpg);background-color: whitesmoke;background-position: left ;'>"
                     + "     <h1 style=\" \">Online Vegetable Market <span style=\"color:#0C6\">Buy Fruits and Vegetable Online</span></h1>"
                     + "			</header>"
                     + "			<div class=\"main\">");

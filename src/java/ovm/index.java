@@ -49,6 +49,7 @@ public class index extends HttpServlet {
             return;
         }
         String uname=(String)hs.getAttribute("UserName");
+        int totqty=(Integer)hs.getAttribute("TotalQty");
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
@@ -86,21 +87,25 @@ public class index extends HttpServlet {
                     "<a href=\"index.html\"><strong>Home</strong></a>"+
                                 "<a href=\"./GetProductsServlet?cate=Fruit\"><strong>Fruits</strong></a>"+
                                 "<a href=\"./GetProductsServlet?cate=Vegetable\"><strong>Vegetable</strong></a>"+
-                                "<a href=\"./GetCartDetails\"><strong>Cart[0]</strong></a>"+
+                                "<a href=\"./GetCartDetailsServlet\"><strong>Cart["+totqty+"]</strong></a>"+
                                 "<a href=\"./BuyServlet\"><strong>Buy Items</strong></a>"+
+                   // "<a href='"+response.encodeURL("AddProductServlet")+"'><strong>Add To Cart</strong></a>"+
 "				<span class=\"right\"><a href=\"Logout\"><strong>Logout</strong></a></span>\n" +
 "			</div><!--/ Codrops top bar -->\n" +
-"			<header class=\"clearfix\">\n" +
+"			<header class=\"clearfix\" style='background-image: url(./images/hd1.jpg);background-color: whitesmoke;background-position: left ;'>\n" +
 "				<h1>Online Vegetable Market <span style=\"color:#0C6\">Buy Fruits and Vegetable Online</span></h1>\n" +
 "			</header>\n<div class='menu'>" +
 "			<div class=\"main\">\n" +
 "				<div id=\"mi-slider\" class=\"mi-slider\">\n" +
-"					<ul>\n" );
+"					<ul>\n");
+           out.println("<form method='post' action='"+response.encodeURL("AddProductServlet")+"'><center>");
+           out.println("<input type='submit' value='Add Products to Cart'/>");
+           out.println("</center>");
             int pp=0;
                     while(pp<8){
                     Product v=(Product)i.next();
                     pp++;
-out.print("<li><a href=\"#\"><img src='./GetImage?p_id="+v.getPId()+"' width='100px' height='100px' alt='Image'><h6>"+v.getPName()+"</h6></a>MRP :"+v.getPrice()+" QTY : <input type=\"text\" name='"+v.getPId()+"' value=\"0.0KG\" size=\"3\"/> <br/>Add To Cart<input type=\"checkbox\" name='products' value='"+v.getPId()+"'/> </li>\n" );
+out.print("<li><a href=\"#\"><img src='./GetImage?p_id="+v.getPId()+"' width='100px' height='100px' alt='Image'><h6>"+v.getPName()+"</h6></a>MRP :"+v.getPrice()+" QTY : <input type=\"text\" name='"+v.getPId()+"' value=\"1.0\" size=\"3\"/>KG <br/>Add To Cart<input type=\"checkbox\" name='products' value='"+v.getPId()+"'/> </li>\n" );
         }
 out.print("					</ul>\n" +
 "					<ul>\n" );
@@ -108,13 +113,13 @@ out.print("					</ul>\n" +
         while(pp<8){
                 Product f=(Product)j.next();
                 pp++;
-out.print("<li><a href=\"#\"><img src='./GetImage?p_id="+f.getPId()+"' width='100px' height='100px' alt='Image'><h6>"+f.getPName()+"</h6></a>MRP : "+f.getPrice()+" QTY : <input type=\"text\" name='"+f.getPId()+"' value=\"0.0KG\" size=\"3\"/><br/>Add To Cart<input type=\"checkbox\" name='products' value='"+f.getPId()+"'/> </li>\n");
+out.print("<li><a href=\"#\"><img src='./GetImage?p_id="+f.getPId()+"' width='100px' height='100px' alt='Image'><h6>"+f.getPName()+"</h6></a>MRP : "+f.getPrice()+" QTY : <input type=\"text\" name='"+f.getPId()+"' value=\"1.0\" size=\"3\"/>KG<br/>Add To Cart<input type=\"checkbox\" name='products' value='"+f.getPId()+"'/> </li>\n");
         }
 out.print("					</ul>\n" +
 "					<ul>\n" +
 "						<li><a href=\"#\"><img src=\"images/9.jpg\" alt=\"img09\"><h4>Your Delivery</h4></a></li>\n" +
 "						<li><a href=\"#\"><img src=\"images/10.jpg\" alt=\"img10\"><h4>Your Returns</h4></a></li>\n" +
-"						<li><a href=\"#\"><img src=\"images/11.jpg\" alt=\"img11\"><h4>Feed Back</h4></a></li>\n" +
+"						<li><a href=\"feedback.jsp\"><img src=\"images/feedback.png\" alt=\"img11\"><h4>Feed Back</h4></a></li>\n" +
 "					</ul>\n" +
 "					<ul>\n" +
 "						<li><a href=\"#\"><img src=\"images/12.jpg\" alt=\"img12\"><h4>Discounts</h4></a></li>\n" +
@@ -128,7 +133,7 @@ out.print("					</ul>\n" +
 "						<a href=\"#\">Track Order</a>\n" +
 "						<a href=\"#\">Offers &amp; Others</a>\n" +
 "					</nav>\n" +
-"				</div>\n" +
+"				</div></form>\n" +
 "			</div>\n" +
 "		</div><!-- /container -->\n" +
 "		<script src=\"js/jquery.min.js\"></script>\n" +

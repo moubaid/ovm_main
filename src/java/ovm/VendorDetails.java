@@ -55,7 +55,7 @@ public void doGet(HttpServletRequest req, HttpServletResponse res)
                         
                         out.println(uname+" </strong>"+ "</a>\n" +
 "				<span class=\"right\"><a href='"+res.encodeURL("Logout")+"'\"><strong>Logout</strong></a></span>\n" );
-            out.println("</div><header class=\"clearfix\">\n" +
+            out.println("</div><header class=\"clearfix\" style='background-image: url(./images/hd1.jpg);background-color: whitesmoke;background-position: left ;'>\n" +
 "				<h1>Online Vegetable Market <span style=\"color:#0C6\"><br/>Buy Fruits and Vegetable Online</span></h1>\n" +
 "			</header>\n" +
 "            <div class=\"main\">\n" +

@@ -35,11 +35,12 @@ html { height: 100%; }
 body {
     font-family: 'Lato', Calibri, Arial, sans-serif;
     background:#999 /*#fff;*/
-    font-weight: 400;
+    font-weight:400;
     font-size: 15px;
     color: #333;
     overflow: scroll;
     overflow-x: hidden;
+    
 }
 
 a {
@@ -58,6 +59,7 @@ a {
 	margin: 0 auto;
 	position: relative;
 	padding: 30px;
+        background-image: url(./images/hd1.jpg);background-color: whitesmoke;background-position: left ;
 }
 
 .main {

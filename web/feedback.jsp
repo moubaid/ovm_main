@@ -23,17 +23,25 @@
 	</head>
 	<body style="background-image: url(./images/bg1.jpg);">
 		<div class="container">	
-                   
+                    <%
+                    HttpSession hs=request.getSession(false);
+                    if(hs==null)
+                        {
+                        response.sendRedirect("Login.html");
+                                               }
+                    String uname=(String)hs.getAttribute("UserName");
+                    int totqty=(Integer)hs.getAttribute("TotalQty");
+                    %>
 			<!-- Codrops top bar -->
 			<div class="codrops-top clearfix">
-				<a href="register.html"><strong>&laquo; Click Here to Register </strong></a>
+                            <a href="register.html"><strong>Welcome, <%=uname%></strong></a>
 				<a href="index.html"><strong>Home</strong></a>
                                 <a href="./GetProductsServlet?cate='Fruit'"><strong>Fruits</strong></a>
                                 <a href="./GetProductsServlet?cate='Vegetable'"><strong>Vegetable</strong></a>
-                                <a href="./GetCartDetails"><strong>Cart[0]</strong></a>
+                                <a href="./GetCartDetailsServlet"><strong>Cart[<%=totqty %>]</strong></a>
                                 <a href="./BuyServlet"><strong>Buy Items</strong></a>
 			</div><!--/ Codrops top bar -->
-			<header class="clearfix" style="background-color:#fff;">
+			<header class="clearfix" style='background-image: url(./images/hd1.jpg);background-color: whitesmoke;background-position: left ;' >
 				<h1>Online Vegetable Market <span style="color:#0C6">Buy Fruits and Vegetable Online</span></h1>
 			</header>
 			<div class="main">

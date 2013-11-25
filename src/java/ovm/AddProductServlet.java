@@ -106,10 +106,10 @@ public class AddProductServlet extends HttpServlet {
         
         }
         
-       // res.sendRedirect("GetCartDetailsServlet");
+       res.sendRedirect("index");
         con.close();
         
-         out.println("<html><head>");
+        /* out.println("<html><head>");
         out.println("<title>Online Vegetable Market</title>");
         out.println("<head><body style=\"background-image: url(./images/bg1.jpg);\">");
         out.println("<table width='100%' height='90%' border='1px'>");
@@ -135,7 +135,9 @@ public class AddProductServlet extends HttpServlet {
            out.println("</tr></table></body></html>");
            out.flush();
            out.close();
+           * */
         }
+        
         catch(Exception e){
         out.println("Error In Database"+e);
         
