@@ -36,6 +36,13 @@ public class AdminHome extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
+        HttpSession hs=request.getSession(false);    
+                if (hs == null) {
+                    RequestDispatcher rd = request.getRequestDispatcher("Login.html");
+                    rd.forward(request, response);
+                    return;
+                }
+                String uname=(String)request.getAttribute("UserName");
         try {
             /* TODO output your page here. You may use following sample code. */
             out.println(""
@@ -57,9 +64,9 @@ public class AdminHome extends HttpServlet {
 "		<div class=\"container\">	"+
 "			<!-- Codrops top bar -->"+
 "			<div class=\"codrops-top clearfix\">"+
-"				<a href=\"register.html\"><strong>&laquo; Click Here to Register </strong></a>"+
+//"				<a href=\"register.html\"><strong>&laquo; Click Here to Register </strong></a>"+
 				
- "                                  <a href=\"VendorHome\"><strong>Home</strong></a>"+
+ "                                  <a href=\"AdminHome\"><strong>Home</strong></a>"+
   "                              <a href=\"./GetProductsServlet?cate=Fruit\"><strong>View Orders</strong></a>"+
 "                                <a href=\"./GetProductsServlet?cate=Vegetable\"><strong>Current</strong></a>"+
 "                                <a href=\"./GetCartDetails\"><strong>Cart[0]</strong></a>"+
@@ -85,13 +92,7 @@ public class AdminHome extends HttpServlet {
                 st = con.createStatement();
                 ResultSet rs;//=null;
 
-                 HttpSession hs=request.getSession(false);    
-                if (hs == null) {
-                    RequestDispatcher rd = request.getRequestDispatcher("Login.html");
-                    rd.forward(request, response);
-                    return;
-                }
-                String uname=(String)request.getAttribute("UserName");
+                 
                 
                 String qry = "select * from ovm_main.Order";
                 //System.out.print(qry);

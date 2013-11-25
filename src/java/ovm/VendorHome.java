@@ -36,6 +36,16 @@ public class VendorHome extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
+        
+                  HttpSession hs=request.getSession(false);
+        if(hs==null)
+        {
+            RequestDispatcher rd=request.getRequestDispatcher("Login.html");
+            rd.forward(request, response);
+            return;
+        }
+        String uname=(String)hs.getAttribute("UserName");
+                
         try {
             /* TODO output your page here. You may use following sample code. */
             out.println(""
@@ -57,13 +67,13 @@ public class VendorHome extends HttpServlet {
                     + "		<div class=\"container\">	"
                     + "			<!-- Codrops top bar -->"
                     + "			<div class=\"codrops-top clearfix\">"
-                    + "				<a href=\"register.html\"><strong>&laquo; Click Here to Register </strong></a>"
+                    + "				<a href=\"VendorDetails\"><strong>&laquo; Welcome, "+uname+"</strong></a>"
                     + "                                  <a href=\"VendorHome\"><strong>Home</strong></a>"
                     + "                              <a href=\"./GetProductsServlet?cate=Fruit\"><strong>View Orders</strong></a>"
                     + "                                <a href=\"./GetProductsServlet?cate=Vegetable\"><strong>Current</strong></a>"
                     + "                                <a href=\"./GetCartDetails\"><strong>Cart[0]</strong></a>"
                     + "                               <a href=\"./BuyServlet\"><strong>Buy Items</strong></a>"
-                    + "                              <span class=\"right\"><a href=\"Login.html\"><strong>Login</strong></a></span>"
+                    + "                              <span class=\"right\"><a href=\"Logout\"><strong>Logout</strong></a></span>"
                     + "			</div><!--/ Codrops top bar -->"
                     + "                       <header class=\"clearfix\"  style=\"background-color:#fff;\">"
                     + "     <h1 style=\" \">Online Vegetable Market <span style=\"color:#0C6\">Buy Fruits and Vegetable Online</span></h1>"
@@ -78,24 +88,19 @@ public class VendorHome extends HttpServlet {
                 st = con.createStatement();
                 ResultSet rs;//=null;
 
-                 HttpSession hs=request.getSession(false);    
-                if (hs == null) {
-                    RequestDispatcher rd = request.getRequestDispatcher("Login.html");
-                    rd.forward(request, response);
-                    return;
-                }
-                String uname=(String)request.getAttribute("UserName");
-                
-                String qry = "select * from Order where vemail='"+uname;
-                //System.out.print(qry);
+                String qry = "select * from ovm_main.Order where vemail like 'tamjeedqazi@gmail.com'";//+uname+"%'";
+                out.print("Hello 1");
                 rs = st.executeQuery(qry);
+                out.print("Hello 2");
                 while (rs.next()) {
+                    out.print("Hello 3");
                     out.print("<h1>"+rs.getString(1)+","+rs.getString(2)+","+rs.getString(3)+","+rs.getString(4)+","+rs.getString(5)+","+rs.getString(6));
 
                     
                 }
+                out.print("Hello 5");
             }
-            catch(Exception e){}
+            catch(Exception e){out.println("Error :"+e);}
                     out.print("			</div>"
                             + "		</div><!-- /container -->"
                             + "		<script src=\"js/jquery.min.js\"></script>"

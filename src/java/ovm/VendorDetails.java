@@ -51,15 +51,15 @@ public void doGet(HttpServletRequest req, HttpServletResponse res)
 "		<div class=\"container\">	\n" +
 "			<!-- Codrops top bar -->\n" +
 "			<div class=\"codrops-top clearfix\">\n" +
-"				<a href=\"CustomerDetails\"><strong>&laquo; Welcome,  ");
+"				<a href=\"VendorHome\"><strong>&laquo; Welcome,  ");
                         
                         out.println(uname+" </strong>"+ "</a>\n" +
 "				<span class=\"right\"><a href='"+res.encodeURL("Logout")+"'\"><strong>Logout</strong></a></span>\n" );
-            out.println("<header class=\"clearfix\">\n" +
+            out.println("</div><header class=\"clearfix\">\n" +
 "				<h1>Online Vegetable Market <span style=\"color:#0C6\"><br/>Buy Fruits and Vegetable Online</span></h1>\n" +
 "			</header>\n" +
 "            <div class=\"main\">\n" +
-"            <h1 class=\"formheader\">Customer Registration </h1>\n" +
+"            <h1 class=\"formheader\">Vendor Registration </h1>\n" +
 "            <div class=\"formcontainer\">\n" +
 "            	<form class=\"register\" action=\"Register\" method=\"post\">\n" +
 "                <table class=\"formdata\" >\n" +
@@ -69,7 +69,7 @@ public void doGet(HttpServletRequest req, HttpServletResponse res)
 "					<tr><label><td>Customer Name     </td><td>: "+rs.getString(2)+"</td></label></tr>\n" +
 "					<tr><label><td>Contact No.       </td><td>: +91 - "+rs.getString(3)+"</td></label></tr>\n" +
 "					\n" +
-"					<tr><label><td>Address           </td><td>: <textarea readonly rows=\"3\" cols=\"20\"/>"+rs.getString(4)+"</textarea></td></label></tr>\n" +
+"					<tr><label><td>Address           </td><td>: "+rs.getString(4)+"</td></label></tr>\n" +
                     "					<tr><label><td>Area              </td><td>: "+rs.getString(5)+"</td></label></tr>\n" +
 "					<tr><label><td>City              </td><td>: "+rs.getString(6)+"</td></label></tr>\n" +
 "					<tr><label><td>Pincode           </td><td>: "+rs.getString(7)+"</td></label></tr>\n" +                                
