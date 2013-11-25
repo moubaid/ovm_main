@@ -26,19 +26,27 @@ public class LoginServlet extends HttpServlet {
     {
         String uname=request.getParameter("username");
         String passwd=request.getParameter("passwd");
+        String usertype=request.getParameter("usertype");
        /* String uname="m.oubaid";
         String passwd="oubaid";*/
         double totamt=0.0;
         int totqty=0;
+        String url;
+        if(usertype.equals("Customer"))
+            url="index";
+        else if(usertype.equals("Vendor"))
+            url="VendorHome";
+        else
+            url="AdminHome";
         ArrayList products=new ArrayList();
         ud=new UserDAO();
-        if(ud.validate(uname,passwd)){
+        if(ud.validate(uname,passwd,usertype)){
             HttpSession hs=request.getSession();
             hs.setAttribute("UserName", uname);
             hs.setAttribute("TotalQty",totqty);
             hs.setAttribute("TotalAmount",totamt);
             hs.setAttribute("products",products);
-            RequestDispatcher rd=request.getRequestDispatcher("index");
+            RequestDispatcher rd=request.getRequestDispatcher(url);
             rd.forward(request, response);
         }
         else

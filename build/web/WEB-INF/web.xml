@@ -60,6 +60,18 @@
         <servlet-name>BuyServlet</servlet-name>
         <servlet-class>ovm.BuyServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>VendorHome</servlet-name>
+        <servlet-class>ovm.VendorHome</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminHome</servlet-name>
+        <servlet-class>ovm.AdminHome</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ProcessOrder</servlet-name>
+        <servlet-class>ovm.ProcessOrder</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
@@ -119,6 +131,18 @@
     <servlet-mapping>
         <servlet-name>BuyServlet</servlet-name>
         <url-pattern>/BuyServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>VendorHome</servlet-name>
+        <url-pattern>/VendorHome</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminHome</servlet-name>
+        <url-pattern>/AdminHome</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProcessOrder</servlet-name>
+        <url-pattern>/ProcessOrder</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

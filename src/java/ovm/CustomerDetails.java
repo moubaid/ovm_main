@@ -54,13 +54,13 @@ public void doGet(HttpServletRequest req, HttpServletResponse res)
 "				<a href=\"CustomerDetails\"><strong>&laquo; Welcome,  ");
                         
                         out.println(uname+" </strong>"+ "</a>\n" +
-                                "<a href=\"index.html\"><strong>Home</strong></a>"+
+                                "<a href=\"index\"><strong>Home</strong></a>"+
                                 "<a href=\"./GetProductsServlet?cate=Fruit\"><strong>Fruits</strong></a>"+
                                 "<a href=\"./GetProductsServlet?cate=Vegetable\"><strong>Vegetable</strong></a>"+
                                 "<a href=\"./GetCartDetails\"><strong>Cart[0]</strong></a>"+
                                 "<a href=\"./BuyServlet\"><strong>Buy Items</strong></a>"+
 "				<span class=\"right\"><a href='"+res.encodeURL("Logout")+"'\"><strong>Logout</strong></a></span>\n" );
-            out.println("<header class=\"clearfix\">\n" +
+            out.println("</div><header class=\"clearfix\">\n" +
 "				<h1>Online Vegetable Market <span style=\"color:#0C6\"><br/>Buy Fruits and Vegetable Online</span></h1>\n" +
 "			</header>\n" +
 "            <div class=\"main\">\n" +
@@ -74,7 +74,7 @@ public void doGet(HttpServletRequest req, HttpServletResponse res)
 "					<tr><label><td>Customer Name     </td><td>: "+rs.getString(2)+"</td></label></tr>\n" +
 "					<tr><label><td>Contact No.       </td><td>: +91 - "+rs.getString(3)+"</td></label></tr>\n" +
 "					\n" +
-"					<tr><label><td>Address           </td><td>: <textarea readonly rows=\"3\" cols=\"20\"/>"+rs.getString(4)+"</textarea></td></label></tr>\n" +
+"					<tr><label><td>Address           </td><td>:"+rs.getString(4)+"</td></label></tr>\n" +// <textarea readonly rows=\"3\" cols=\"20\"/></textarea>
                     "					<tr><label><td>Area              </td><td>: "+rs.getString(5)+"</td></label></tr>\n" +
 "					<tr><label><td>City              </td><td>: "+rs.getString(6)+"</td></label></tr>\n" +
 "					<tr><label><td>Pincode          </td><td>: "+rs.getString(7)+"</td></label></tr>\n" +                                

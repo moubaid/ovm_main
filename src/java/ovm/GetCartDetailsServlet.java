@@ -23,7 +23,7 @@ public class GetCartDetailsServlet extends HttpServlet {
 public void doGet(HttpServletRequest req,HttpServletResponse res)
         throws ServletException,IOException
 {
-    HttpSession hs=req.getSession(false);
+        HttpSession hs=req.getSession(false);
         if(hs==null)
         {
             RequestDispatcher rd=req.getRequestDispatcher("Login.html");
@@ -36,7 +36,8 @@ public void doGet(HttpServletRequest req,HttpServletResponse res)
         res.setContentType("text/html");
        PrintWriter out=res.getWriter();
         
-        out.println("<html lang=\"en\" class=\"no-js\">\n" +
+        out.println("<!DOCTYPE html>\n" +
+"<html lang=\"en\" class=\"no-js\">\n" +
 "	<head>\n" +
 "		<meta charset=\"UTF-8\" />\n" +
 "		<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge,chrome=1\"> \n" +
@@ -47,8 +48,6 @@ public void doGet(HttpServletRequest req,HttpServletResponse res)
 "		<meta name=\"author\" content=\"Obbu\" />\n" +
 "		<link rel=\"shortcut icon\" href=\"../favicon.ico\"> \n" +
 "		<link rel=\"stylesheet\" type=\"text/css\" href=\"css/style.css\" />\n" +
-"                <link rel=\"stylesheet\" type=\"text/css\" href=\"css/form.css\" />\n" +
-"                <link rel=\"stylesheet\" type=\"text/css\" href=\"css/demo.css\" />\n" +
 "		<script src=\"js/modernizr.custom.63321.js\"></script>\n" +
 "	</head>\n" +
 "	<body style=\"background-image: url(./images/bg1.jpg);\">\n" +
@@ -56,7 +55,7 @@ public void doGet(HttpServletRequest req,HttpServletResponse res)
 "			<!-- Codrops top bar -->\n" +
 "			<div class=\"codrops-top clearfix\">\n" +
 "				<a href=\"CustomerDetails\"><strong>&laquo; Welcome,</strong>"+uname+"</a>\n" +
-                    "<a href=\"index.html\"><strong>Home</strong></a>"+
+                    "<a href=\"index\"><strong>Home</strong></a>"+
                                 "<a href=\"./GetProductsServlet?cate=Fruit\"><strong>Fruits</strong></a>"+
                                 "<a href=\"./GetProductsServlet?cate=Vegetable\"><strong>Vegetable</strong></a>"+
                                 "<a href=\"./GetCartDetails\"><strong>Cart[0]</strong></a>"+
@@ -65,20 +64,9 @@ public void doGet(HttpServletRequest req,HttpServletResponse res)
 "			</div><!--/ Codrops top bar -->\n" +
 "			<header class=\"clearfix\">\n" +
 "				<h1>Online Vegetable Market <span style=\"color:#0C6\">Buy Fruits and Vegetable Online</span></h1>\n" +
-"			</header>\n" +
-"			<div class=\"main\">");
-        out.println("<table width='100%' height='90%' border='0'>");
-      //  out.println("<tr align='center'> "
-      //          + "<td height='39%' colspan='2'><strong><font size='5'>Online Vegetable Market</font></strong></td></tr>");
-        out.println("<tr> <td width='18%' height='500px' valign='top'><p>&nbsp;</p>");
-        out.println("<blockquote><p><a href='"+res.encodeURL("index")+"'>Home</a></p><p>");
-        out.println("<a href='"+res.encodeURL("GetProductsServlet")+"'>Vegetables</a></p><p>");
-        out.println("<a href='"+res.encodeURL("GetProductsServlet")+"'>Fruits</a></p><p>");
-        out.println("<a href='"+res.encodeURL("GetCartDetailsServlet")+"'>Cart Details</a></p><p>");
-        out.println("<a href='"+res.encodeURL("BuyServlet")+"'>Buy Cart</a></p><p>");
-        out.println("<a href='"+res.encodeURL("Logout")+"'>Logout</a></p></blockquote></td>");
-        out.println("<td width='82%' align='left' valign='top'><p>");
-       // out.println("<font size='6'>Welcome, "+uname+"</font></p>");
+"			</header>\n");
+out.println("			<div class=\"main\">");
+        
         out.println("<form method='post' action='"+res.encodeURL("BuyServlet")+"'>");
         out.println("<table width='100%' border='1'>");
         out.println("<tr>");

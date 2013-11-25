@@ -25,7 +25,7 @@
                                 <a href="./GetProductsServlet?cate=Vegetable"><strong>Vegetable</strong></a>
                                 <a href="./GetCartDetails"><strong>Cart[0]</strong></a>
                                 <a href="./BuyServlet"><strong>Buy Items</strong></a>
-			</div><!--/ Codrops top bar -->
+			</div>
 			<header class="clearfix">
 				<h1>Online Vegetable Market <span style="color:#0C6">Buy Fruits and Vegetable Online</span></h1>
 			</header>
@@ -34,12 +34,15 @@
             <form name="form1" action="LoginServlet" method="post">
             <br/>
             	<table border="0" class="formdata">
-                	<label><tr><td>Email ID</td><td> : <input class="forminput" type="text" name="username" size="20"/></label>
-                    <br />
-                    <label><tr><td>Password </td><td> : <input class="forminput" type="password" name="passwd" size="20"/></label>
+                    <label><tr><td>Email ID</td><td> : <input class="forminput" type="text" name="username" size="20"/></td></tr></label>
+                    <label><tr><td>Password </td><td> : <input class="forminput" type="password" name="passwd" size="20"/></td></tr></label>
+                    <label><tr><td>User Type </td><td> : <select class="forminput" name="usertype" size="1">
+                                    <option>Customer</option>
+                            <option>Vendor</option>
+                            <option>Admin</option></select></td></tr></label>
            </table>
                                     <button class="login1" name="login" ><span class="login">Login</span></button>
-            </form>
+            </form>                           
             </div>
             
             </div>

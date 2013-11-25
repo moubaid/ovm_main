@@ -26,106 +26,107 @@ import javax.servlet.http.HttpSession;
  */
 public class BuyServlet extends HttpServlet {
 
-            Connection con;//=DriverConnection.getConnection();
-            PreparedStatement ps=null;//=con.createStatement();
-            Statement st=null;
-            ResultSet rs=null;
+    Connection con;//=DriverConnection.getConnection();
+    PreparedStatement ps = null;//=con.createStatement();
+    Statement st = null;
+    ResultSet rs = null;
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        HttpSession hs=request.getSession(false);
-        if(hs==null)
-        {
-            RequestDispatcher rd=request.getRequestDispatcher("Login.html");
+        HttpSession hs = request.getSession(false);
+        if (hs == null) {
+            RequestDispatcher rd = request.getRequestDispatcher("Login.html");
             rd.forward(request, response);
             return;
         }
-        out.print("Im Threre 1");
-        String uname=(String)hs.getAttribute("UserName");
-          double totamt=(Double)hs.getAttribute("TotalAmount");
-          int totqty=(Integer)hs.getAttribute("TotalQty");
-        try
-                {
+        //out.print("Im Threre 1");
+        String uname = (String) hs.getAttribute("UserName");
+        double totamt = (Double) hs.getAttribute("TotalAmount");
+        int totqty = (Integer) hs.getAttribute("TotalQty");
+        try {
 
-                    String sqlstmt = "INSERT INTO OVM_main.Order(email,dop,totalamt,totqty)"
-			+ " VALUES "
-			+ "(?,?,?,?)";
-            con=DriverConnection.getConnection();
-            out.print("Im Threre 2");
-            ps=con.prepareStatement(sqlstmt);
-            
-                        ps.setString(1, uname);
-                           Date dNow = new Date();
-                           SimpleDateFormat ft =new SimpleDateFormat ("dd/MM/yyyy hh:mm:ss a");
+            String sqlstmt = "INSERT INTO OVM_main.Order(email,dop,totalamt,totqty)"
+                    + " VALUES "
+                    + "(?,?,?,?)";
+            con = DriverConnection.getConnection();
 
-  
-                                ps.setString(2, ft.format(dNow).toString());
-                                ps.setDouble(3, totamt);
-                                ps.setDouble(4,totqty);
-                                out.print("Im Threre 3");
-                                con.setAutoCommit(false);
+            ps = con.prepareStatement(sqlstmt);
 
-                                int count=ps.executeUpdate();
-                                out.print("Im Threre 4");
-                                 if(count==1||count==Statement.SUCCESS_NO_INFO)
-                                {
-                                    out.println("<html><body style=\"background-image: url(./images/bg1.jpg);\"><center>");
-                                    out.println("Items Purchased Successfully<br/>");
-                                    out.println("<li><i>Thank You for Buying</i></li>");
-                                    out.println("</center></body></html>");
-                                }
-                                
-                     
-                                else
-                                {
-                                    out.println("<html><body><center>");
-                                    out.println("Given details are incorrect<br/>");
-                                    out.println("<li><i>Please try again later</i></li>");
-                                    out.println("</center></body></html>");
-                                }
-                                 out.print("Im Threre 5");
-                                 st=con.createStatement();
-                                 
-                                 String qry="insert into OVM_main.onlinestatus(email,start_time,status) values('"+uname+"','"+ft.format(dNow)+"','Your Order Forwarded to Vendor')";
-                                 count = st.executeUpdate(qry);
-                                 out.print("Im Threre 6");
-                                 if(count==1||count==Statement.SUCCESS_NO_INFO)
-                                {
-                                    out.println("<html><body><center>");
-                                    out.println("Items Purchased Successfully<br/>");
-                                    out.println("<li><i>Thank You for Buying</i></li>");
-                                    out.println("</center></body></html>");
-                                    con.commit();
-                                    totqty=0;
-                                    totamt=0;
-                                    hs.setAttribute("TotalAmount",totamt);
-                                    hs.setAttribute("TotalQty",totqty);
-                                    Collection products=null;
-                                    hs.setAttribute("products",products);
-                                    
-                                }
-                                
-                     
-                                else
-                                {
-                                    out.println("<html><body><center>");
-                                    out.println("Given details are incorrect<br/>");
-                                    out.println("<li><i>Please try again later</i></li>");
-                                    out.println("</center></body></html>");
-                                }
-                                 out.print("Im Threre 7");
+            ps.setString(1, uname);
+            Date dNow = new Date();
+            SimpleDateFormat ft = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss a");
+
+
+            ps.setString(2, ft.format(dNow).toString());
+            ps.setDouble(3, totamt);
+            ps.setDouble(4, totqty);
+            //out.print("Im Threre 3");
+            con.setAutoCommit(false);
+
+            int count = ps.executeUpdate();
+            //out.print("Im Threre 4");
+            if (count == 1 || count == Statement.SUCCESS_NO_INFO) {
+                out.println("<html><body style=\"background-image: url(./images/bg1.jpg);\"><center>");
+                out.println("Items Purchased Successfully<br/>");
+                out.println("<li><i>Thank You for Buying</i></li>");
+                out.println("</center></body></html>");
+                //String qry="select o_id from order where "
+                st = con.createStatement();
+                Collection products = null;
+                /*products = (Collection) hs.getAttribute("products");
+                if (products == null) {
+                    out.println("<tr><td colspan='5' align='center'>");
+                    out.println("You have not Added Any Products");
+                    out.println("</td></tr>");
+                } else {
+                    Iterator i = products.iterator();
+                    while (i.hasNext()) {
+
+                        Product p = (Product) i.next();
+                    }
+                }*/
+
+                String qry = "insert into OVM_main.onlinestatus(email,start_time,status) values('" + uname + "','" + ft.format(dNow) + "','Your Order Forwarded to Vendor')";
+                count = st.executeUpdate(qry);
+                //out.print("Im Threre 6");
+                if (count == 1 || count == Statement.SUCCESS_NO_INFO) {
+                    out.println("<html><body><center>");
+                    out.println("Items Purchased Successfully<br/>");
+                    out.println("<li><i>Thank You for Buying</i></li>");
+                    out.println("</center></body></html>");
+                    con.commit();
+                    totqty = 0;
+                    totamt = 0;
+                    hs.setAttribute("TotalAmount", totamt);
+                    hs.setAttribute("TotalQty", totqty);
+
+                    hs.setAttribute("products", products);
+
+                } else {
+                    out.println("<html><body><center>");
+                    out.println("Given details are incorrect<br/>");
+                    out.println("<li><i>Please try again later</i></li>");
+                    out.println("</center></body></html>");
                 }
-                catch(Exception e)
-                {
-                    out.print("Im Threre 8"+e);
-                    throw new ServletException("Initalization failed, Unable to get DB Connection");
-                }
-             finally {            
-            out.print("Im Threre 9");
+            } else {
+                out.println("<html><body><center>");
+                out.println("Given details are incorrect<br/>");
+                out.println("<li><i>Please try again later</i></li>");
+                out.println("</center></body></html>");
+            }
+            //out.print("Im Threre 5");
+
+            //out.print("Im Threre 7");
+        } catch (Exception e) {
+            //out.print("Im Threre 8"+e);
+            throw new ServletException("Initalization failed, Unable to get DB Connection");
+        } finally {
+            //out.print("Im Threre 9");
             out.close();
         }
-        
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
