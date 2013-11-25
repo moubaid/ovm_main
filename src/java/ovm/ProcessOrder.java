@@ -84,18 +84,29 @@ public class ProcessOrder extends HttpServlet {
                     return;
                 }
                 String uname=(String)request.getAttribute("UserName");
-                
+                String area = null;
                 String qry = "select * from Customer Where email='"+cust+"'";
                 //System.out.print(qry);
                 rs = st.executeQuery(qry);
-                out.print("<form action='ProcessOrder' method='post'>");
-                out.print("<center><table border='1'><tr><th>Order ID</th><th>Customer Mail ID</th><th>Date of Purchase</th><th>Total Amount</th><th>Total Qty</th><th>Process Order</th>");
+                
+                out.print("<center>Order ID"+orderid+"<br /><table border='1'><tr><th>Customer Name</th><th>Mobile No.</th><th>Address of Customer</th><th>Area </th><th>City</th><th>PinCode</th></tr>");
+                if (rs.next()) {
+                    out.print("<tr><td>"+rs.getString(2)+"</td><td>"+rs.getString(3)+"</td><td>"+rs.getString(4)+"</td><td>"+rs.getString(5)+"</td><td>"+rs.getString(6)+"</td><td>"+rs.getString(7)+"</tr>");
+                    area=rs.getString(5);
+                    
+                }
+                rs.close();
+                out.print("</center></table><br /><br />");
+                qry = "select * from Vendor Where area='"+area+"'";
+                //System.out.print(qry);
+                rs = st.executeQuery(qry);
+                
+                out.print("<center>Nearest Vednor For the Customer<br /><table border='1'><tr><th>Vendor Name</th><th>Mobile No.</th><th>Address of Vendor</th><th>Area </th><th>City</th><th>PinCode</th><th>Assign Orders</th></tr>");
                 while (rs.next()) {
-                    out.print("<tr><td>"+rs.getString(1)+"</td><td>"+rs.getString(2)+"</td><td>"+rs.getString(3)+"</td><td>"+rs.getString(4)+"</td><td>"+rs.getString(5)+"</td></tr>");
+                    out.print("<tr><td>"+rs.getString(2)+"</td><td>"+rs.getString(3)+"</td><td>"+rs.getString(4)+"</td><td>"+rs.getString(5)+"</td><td>"+rs.getString(6)+"</td><td>"+rs.getString(7)+"</td><td><a href='./AssignOrder?vemail="+rs.getString(1)+"&oid="+orderid+"'>Assign Order</a></td></tr>");
 
                     
                 }
-                out.print("</center></table></form>");
             }
             catch(Exception e){
             out.print("Error"+e);
