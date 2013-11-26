@@ -6,10 +6,19 @@ package ovm;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -28,17 +37,59 @@ public class AddFeedback extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, Exception {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         String subject=request.getParameter("subject");
         String text=request.getParameter("text");
+        Connection con;//=DriverConnection.getConnection();
+            PreparedStatement ps=null;//=con.createStatement();
+            Statement st=null;
+            ResultSet rs=null;
+            HttpSession hs=request.getSession(false);
+                    if(hs==null)
+                        {
+                        response.sendRedirect("Login.html");
+                                               }
+                    String uname=(String)hs.getAttribute("UserName");
+                    int totqty=(Integer)hs.getAttribute("TotalQty");
         try {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<html>");
+            
+            String sqlstmt = "INSERT INTO FeedBack"
+			+ " VALUES "
+			+ "(?,?,?,?)";
+                con=DriverConnection.getConnection();
+                ps=con.prepareStatement(sqlstmt);
+                 ps.setString(1, uname);
+                ps.setString(2, subject);
+                ps.setString(3, text);
+                Date dNow = new Date();
+                SimpleDateFormat ft = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss a");
+                ps.setString(4,ft.format(dNow).toString());
+                    int count=ps.executeUpdate();
+                                
+                                if(count==1||count==Statement.SUCCESS_NO_INFO)
+                                {
+                                        out.println("<head><script>function load(){alert(\"Feedback Added Successfully\");}</script></head>"
+                                        + "<body onload=\"load()\"><h1>Added Feedback</h1><a href='feedback.jsp'>Click Here for Feedback</a></body></html>");
+                                        //response.sendRedirect("feedback.jsp");
+                                }
+                                
+                     
+                                else
+                                {
+                                    out.println("<html><body style=\"background-image: url(./images/bg1.jpg);\"><center>");
+                                    out.println("Given details are incorrect<br/>");
+                                    out.println("<li><i>Please try again later</i></li>");
+                                    out.println("<br /><a href='feedback.jsp'>Click Here</a>For Feedback</center></body></html>");
+                                }
+        
+            
+           
             
         } finally {            
             out.close();
+            
         }
     }
 
@@ -55,7 +106,11 @@ public class AddFeedback extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (Exception ex) {
+            Logger.getLogger(AddFeedback.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -70,7 +125,11 @@ public class AddFeedback extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (Exception ex) {
+            Logger.getLogger(AddFeedback.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**

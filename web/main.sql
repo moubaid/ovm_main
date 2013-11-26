@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 21, 2013 at 04:25 AM
+-- Generation Time: Nov 26, 2013 at 03:11 AM
 -- Server version: 5.0.51
 -- PHP Version: 5.2.6
 
@@ -37,7 +37,7 @@ CREATE TABLE `customer` (
 
 INSERT INTO `customer` (`email`, `c_name`, `c_phone`, `address`, `Area`, `city`, `pincode`, `passwd`) VALUES
 ('m.oubaid@gmail.com', 'Mohammed Oubaid', '9886382484', '#40, Lakshmi Narayan Temple Road, 7th Main', 'Marathalli', 'Bangalore', '560037', 'oubaid'),
-('sabeer@gmail.com', 'Sabeer Abdul', '90909090', 'Shop#123', 'Marathalli', 'bagalore', '560006', 'sabeer');
+('sabeer@gmail.com', 'Sabeer Abdul', '90909090', 'Shop#123', 'Marathalli', 'bagalore', '560037', 'sabeer');
 
 -- --------------------------------------------------------
 
@@ -49,13 +49,15 @@ CREATE TABLE `feedback` (
   `email` varchar(30) default NULL,
   `subject` varchar(50) default NULL,
   `msg` varchar(160) default NULL,
-  `date` varchar(30) default NULL
+  `dof` varchar(30) default NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `feedback`
 --
 
+INSERT INTO `feedback` (`email`, `subject`, `msg`, `dof`) VALUES
+(NULL, 'ada', 'Type Hedadadare', '26/11/2013 08:30:27 AM');
 
 -- --------------------------------------------------------
 
@@ -78,7 +80,7 @@ CREATE TABLE `onlinestatus` (
 --
 
 INSERT INTO `onlinestatus` (`email`, `o_id`, `start_time`, `end_time`, `status`) VALUES
-('m.oubaid@gmail.com', 1, '19/11/2013 09:39:39 PM', NULL, 'Your Order Forwarded to Vendor');
+('m.oubaid@gmail.com', 1, '25/11/2013 08:42:05 PM', NULL, 'Your Order Forwarded to Vendor');
 
 -- --------------------------------------------------------
 
@@ -101,7 +103,7 @@ CREATE TABLE `order` (
 --
 
 INSERT INTO `order` (`o_id`, `email`, `dop`, `totalamt`, `totqty`, `vemail`) VALUES
-(1, 'm.oubaid@gmail.com', '19/11/2013 09:39:39 PM', '400', 2, NULL);
+(1, 'm.oubaid@gmail.com', '25/11/2013 08:42:05 PM', '660', 3, 'tamjeedqazi@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -254,6 +256,25 @@ INSERT INTO `products` (`p_id`, `p_name`, `price`, `p_desc`, `p_cate`, `aqty`, `
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `sales`
+--
+
+CREATE TABLE `sales` (
+  `o_id` int(11) default NULL,
+  `sale_id` int(11) default NULL,
+  `p_id` int(11) default NULL,
+  `qty` double default NULL,
+  `totprice` double default NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `sales`
+--
+
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `vendor`
 --
 
@@ -265,7 +286,7 @@ CREATE TABLE `vendor` (
   `area` varchar(30) NOT NULL,
   `city` varchar(30) NOT NULL,
   `pincode` varchar(6) NOT NULL,
-  `password` varchar(30) NOT NULL,
+  `passwd` varchar(30) NOT NULL,
   `curbal` double NOT NULL,
   PRIMARY KEY  (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -274,5 +295,5 @@ CREATE TABLE `vendor` (
 -- Dumping data for table `vendor`
 --
 
-INSERT INTO `vendor` (`email`, `v_name`, `v_phone`, `address`, `area`, `city`, `pincode`, `password`, `curbal`) VALUES
+INSERT INTO `vendor` (`email`, `v_name`, `v_phone`, `address`, `area`, `city`, `pincode`, `passwd`, `curbal`) VALUES
 ('tamjeedqazi@gmail.com', 'Tamjeed Qazi', '9739603141', 'Shop#123', 'Marathalli', 'bagalore', '560006', 'tamjeed', 0);

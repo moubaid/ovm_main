@@ -47,12 +47,12 @@
 			<div class="main">
                             <div class="errorpage">
                             <h3 align="center">Feedback</h3>
-                            <form name="form1" action="LoginServlet" method="post">
+                            <form name="form1" action="AddFeedback" method="post">
                             <br/>
                         <table border="0" class="formdata">
-                	<label><tr><td>Subject </td><td> : <input class="forminput" type="text" name="subjects" size="20"/></label>
+                	<label><tr><td>Subject </td><td> : <input class="forminput" type="text" name="subject" size="20"/></label>
                     <br />
-                    <label><tr><td>Feedback </td><td> : <textarea class="forminput" name="msg" cols="36" rows="3">Type Here</textarea> </label>
+                    <label><tr><td>Feedback </td><td> : <textarea class="forminput" name="text" cols="36" rows="3">Type Here</textarea> </label>
                     
            </table>
                     <button class="login1" name="login" ><span class="login">Submit</span></button>

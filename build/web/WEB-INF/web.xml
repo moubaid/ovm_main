@@ -76,6 +76,10 @@
         <servlet-name>AssignOrder</servlet-name>
         <servlet-class>ovm.AssignOrder</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AddFeedback</servlet-name>
+        <servlet-class>ovm.AddFeedback</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
@@ -151,6 +155,10 @@
     <servlet-mapping>
         <servlet-name>AssignOrder</servlet-name>
         <url-pattern>/AssignOrder</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddFeedback</servlet-name>
+        <url-pattern>/AddFeedback</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
