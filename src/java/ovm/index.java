@@ -105,7 +105,7 @@ public class index extends HttpServlet {
                     while(pp<8){
                     Product v=(Product)i.next();
                     pp++;
-out.print("<li><a href=\"#\"><img src='./GetImage?p_id="+v.getPId()+"' width='100px' height='100px' alt='Image'><h6>"+v.getPName()+"</h6></a>MRP :"+v.getPrice()+" QTY : <input type=\"text\" name='"+v.getPId()+"' value=\"1.0\" size=\"3\"/>KG <br/>Add To Cart<input type=\"checkbox\" name='products' value='"+v.getPId()+"'/> </li>\n" );
+out.print("<li><a href='./productDetail.jsp?P_ID="+v.getPId()+"'><img src='./GetImage?p_id="+v.getPId()+"' width='100px' height='100px' alt='Image'><h6>"+v.getPName()+"</h6></a>MRP :"+v.getPrice()+" QTY : <input type=\"text\" name='"+v.getPId()+"' value=\"1.0\" size=\"3\"/>KG <br/>Add To Cart<input type=\"checkbox\" name='products' value='"+v.getPId()+"'/> </li>\n" );
         }
 out.print("					</ul>\n" +
 "					<ul>\n" );
@@ -113,7 +113,7 @@ out.print("					</ul>\n" +
         while(pp<8){
                 Product f=(Product)j.next();
                 pp++;
-out.print("<li><a href=\"#\"><img src='./GetImage?p_id="+f.getPId()+"' width='100px' height='100px' alt='Image'><h6>"+f.getPName()+"</h6></a>MRP : "+f.getPrice()+" QTY : <input type=\"text\" name='"+f.getPId()+"' value=\"1.0\" size=\"3\"/>KG<br/>Add To Cart<input type=\"checkbox\" name='products' value='"+f.getPId()+"'/> </li>\n");
+out.print("<li><a href=href='./productDetail.jsp?P_ID="+f.getPId()+"'><img src='./GetImage?p_id="+f.getPId()+"' width='100px' height='100px' alt='Image'><h6>"+f.getPName()+"</h6></a>MRP : "+f.getPrice()+" QTY : <input type=\"text\" name='"+f.getPId()+"' value=\"1.0\" size=\"3\"/>KG<br/>Add To Cart<input type=\"checkbox\" name='products' value='"+f.getPId()+"'/> </li>\n");
         }
 out.print("					</ul>\n" +
 "					<ul>\n" +

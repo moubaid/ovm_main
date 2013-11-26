@@ -103,7 +103,7 @@ public class GetProductsServlet extends HttpServlet {
                     out.println("<td align='center'>");
                     out.println("<input type='checkbox' name='products' value='"+p.getPId()+"'/></td>");
                     out.println("<td>"+p.getPId()+"</td>");
-                    out.println("<td>"+p.getPName()+"</td>");
+                    out.println("<td><a href=href='./productDetail.jsp?P_ID="+p.getPId()+"'>"+p.getPName()+"</a></td>");
                     out.println("<td>"+p.getPrice()+"</td>");
                     out.println("<td><input type='text' value='1.0' name='"+p.getPId()+"'/>KG</td>");
                    // out.println("<td>"+p.getImage()+"</td>");
